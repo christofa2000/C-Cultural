@@ -1,5 +1,3 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
 import { HeroSpotlight } from '@/components/HeroSpotlight'
 import { HighlightsRail } from '@/components/HighlightsRail'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
@@ -11,7 +9,7 @@ export default function Home() {
     title: 'Centro Cultural Chivilcoy',
     subtitle:
       'Un espacio donde la creatividad, el arte y la comunidad se encuentran. Clases para todas las edades, colonia de verano e invierno, y alquiler de salón.',
-    image: '/images/salapro.jpg',
+    image: '/images/fondo-app.jpg',
     imageAlt:
       'Centro Cultural Chivilcoy - Salón principal con piso de madera y espejos',
     primaryCta: {
@@ -146,64 +144,60 @@ export default function Home() {
   ]
 
   return (
-    <>
-      <Header />
-      <main className="min-h-screen">
-        {/* Hero Section */}
-        <HeroSpotlight {...heroData} />
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <HeroSpotlight {...heroData} />
 
-        {/* Clases Destacadas */}
-        <HighlightsRail
-          title="Nuestras Clases"
-          items={classHighlights}
-          className="bg-linear-to-b from-neutral-900 to-neutral-950"
-        />
+      {/* Clases Destacadas */}
+      <HighlightsRail
+        title="Nuestras Clases"
+        items={classHighlights}
+        className="bg-gradient-to-b from-neutral-900 to-neutral-950"
+      />
 
-        {/* Próximos Eventos */}
-        <HighlightsRail
-          title="Próximos Eventos"
-          items={upcomingEvents}
-          className="bg-linear-to-b from-neutral-950 to-neutral-900"
-        />
+      {/* Próximos Eventos */}
+      <HighlightsRail
+        title="Próximos Eventos"
+        items={upcomingEvents}
+        className="bg-gradient-to-b from-neutral-950 to-neutral-900"
+      />
 
-        {/* Colonia */}
-        <HighlightsRail
-          title="Colonia de Verano e Invierno"
-          items={colonyHighlights}
-          className="bg-linear-to-b from-neutral-900 to-neutral-950"
-        />
+      {/* Colonia */}
+      <HighlightsRail
+        title="Colonia de Verano e Invierno"
+        items={colonyHighlights}
+        className="bg-gradient-to-b from-neutral-900 to-neutral-950"
+      />
 
-        {/* Alquiler de Espacios */}
-        <HighlightsRail
-          title="Alquiler de Espacios"
-          items={roomHighlights}
-          className="bg-linear-to-b from-neutral-950 to-neutral-900"
-        />
+      {/* Alquiler de Espacios */}
+      <HighlightsRail
+        title="Alquiler de Espacios"
+        items={roomHighlights}
+        className="bg-gradient-to-b from-neutral-950 to-neutral-900"
+      />
 
-        {/* CTA Final */}
-        <section className="bg-linear-to-r from-violet-600 via-violet-500 to-pink-500 py-20">
-          <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
-            <h2 className="font-fraunces mb-6 text-3xl font-bold text-white sm:text-4xl">
-              ¿Listo para comenzar tu viaje artístico?
-            </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-white/90">
-              Contactanos por WhatsApp y te ayudamos a encontrar la clase
-              perfecta para vos o tu familia.
-            </p>
-            <WhatsAppButton
-              href={buildGeneralInquiry(
-                'Hola, me interesa conocer más sobre las clases y actividades del centro cultural.'
-              )}
-              variant="ghost"
-              size="lg"
-              ariaLabel="Contactar por WhatsApp para consultas generales"
-            >
-              Consultar por WhatsApp
-            </WhatsAppButton>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+      {/* CTA Final */}
+      <section className="bg-gradient-to-r from-violet-600 via-violet-500 to-pink-500 py-20">
+        <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="font-fraunces mb-6 text-3xl font-bold text-white sm:text-4xl">
+            ¿Listo para comenzar tu viaje artístico?
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-xl text-white/90">
+            Contactanos por WhatsApp y te ayudamos a encontrar la clase perfecta
+            para vos o tu familia.
+          </p>
+          <WhatsAppButton
+            href={buildGeneralInquiry(
+              'Hola, me interesa conocer más sobre las clases y actividades del centro cultural.'
+            )}
+            variant="ghost"
+            size="lg"
+            ariaLabel="Contactar por WhatsApp para consultas generales"
+          >
+            Consultar por WhatsApp
+          </WhatsAppButton>
+        </div>
+      </section>
+    </main>
   )
 }
