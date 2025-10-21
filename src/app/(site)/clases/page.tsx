@@ -99,7 +99,7 @@ export default function ClassesPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-neutral-950 text-neutral-100">
+      <main className="bg-background text-foreground min-h-screen">
         <div className="container mx-auto px-4 py-8 md:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">

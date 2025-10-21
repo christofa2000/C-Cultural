@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-neutral-950 text-neutral-100">
+      <main className="bg-background text-foreground min-h-screen">
         <section className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-12 text-center">

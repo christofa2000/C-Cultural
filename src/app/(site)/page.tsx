@@ -152,32 +152,32 @@ export default function Home() {
       <HighlightsRail
         title="Nuestras Clases"
         items={classHighlights}
-        className="bg-gradient-to-b from-neutral-900 to-neutral-950"
+        className="bg-linear-to-b from-neutral-900 to-neutral-950"
       />
 
       {/* Próximos Eventos */}
       <HighlightsRail
         title="Próximos Eventos"
         items={upcomingEvents}
-        className="bg-gradient-to-b from-neutral-950 to-neutral-900"
+        className="bg-linear-to-b from-neutral-950 to-neutral-900"
       />
 
       {/* Colonia */}
       <HighlightsRail
         title="Colonia de Verano e Invierno"
         items={colonyHighlights}
-        className="bg-gradient-to-b from-neutral-900 to-neutral-950"
+        className="bg-linear-to-b from-neutral-900 to-neutral-950"
       />
 
       {/* Alquiler de Espacios */}
       <HighlightsRail
         title="Alquiler de Espacios"
         items={roomHighlights}
-        className="bg-gradient-to-b from-neutral-950 to-neutral-900"
+        className="bg-linear-to-b from-neutral-950 to-neutral-900"
       />
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-r from-violet-600 via-violet-500 to-pink-500 py-20">
+      <section className="bg-linear-to-r from-violet-600 via-violet-500 to-pink-500 py-20">
         <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
           <h2 className="font-fraunces mb-6 text-3xl font-bold text-white sm:text-4xl">
             ¿Listo para comenzar tu viaje artístico?

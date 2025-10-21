@@ -118,3 +118,15 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 }
+
+/* Fallback global */
+html {
+  color-scheme: dark;
+}
+
+body,
+main,
+section {
+  background-color: #1b103f !important; /* violeta oscuro */
+  color: #f3e8ff !important; /* texto claro */
+}

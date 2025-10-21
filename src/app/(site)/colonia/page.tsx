@@ -16,7 +16,7 @@ export default function ColonyPage() {
   const winterColony = colony.find((c) => c.season === 'invierno')
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100">
+    <main className="bg-background text-foreground min-h-screen">
       <Header />
 
       <section className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
