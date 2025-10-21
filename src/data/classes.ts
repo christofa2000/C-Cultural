@@ -10,6 +10,7 @@ export const classes: Class[] = [
     ages: 'niñxs',
     teacherId: 'musica',
     price: 'Consultar',
+    images: ['/musica-teatro.jpeg'],
   },
   {
     id: 'inf-teatro-infantil',
@@ -19,6 +20,7 @@ export const classes: Class[] = [
     ages: '6 a 11 años',
     teacherId: 'teatro',
     price: 'Consultar',
+    images: ['/teatro-infantil.jpeg'],
   },
   {
     id: 'inf-teclado',
@@ -28,6 +30,7 @@ export const classes: Class[] = [
     ages: 'niñxs',
     teacherId: 'musica',
     price: 'Consultar',
+    images: ['/musica-teatro.jpeg'],
   },
   {
     id: 'inf-danza-exp-corporal',
@@ -37,6 +40,7 @@ export const classes: Class[] = [
     ages: '3 a 5 años',
     teacherId: 'danza',
     price: 'Consultar',
+    images: ['/movimiento-baile.jpeg'],
   },
   {
     id: 'inf-urbano-kids',
@@ -46,6 +50,7 @@ export const classes: Class[] = [
     ages: '4 a 6 años',
     teacherId: 'danza',
     price: 'Consultar',
+    images: ['/urbano-kid.jpeg'],
   },
   {
     id: 'inf-arte-y-juego',
@@ -55,6 +60,7 @@ export const classes: Class[] = [
     ages: '3 a 6 años',
     teacherId: 'team',
     price: 'Consultar',
+    images: ['/arte-juego.jpg'],
   },
   {
     id: 'inf-teatro-y-musica',
@@ -64,6 +70,7 @@ export const classes: Class[] = [
     ages: '3 a 6 años',
     teacherId: 'team',
     price: 'Consultar',
+    images: ['/teatro-infantil.jpeg'],
   },
   {
     id: 'inf-musica-y-teatro',
@@ -73,6 +80,7 @@ export const classes: Class[] = [
     ages: '3 a 5 años',
     teacherId: 'team',
     price: 'Consultar',
+    images: ['/musica-teatro.jpeg'],
   },
   {
     id: 'inf-danza-ritmica',
@@ -82,6 +90,7 @@ export const classes: Class[] = [
     ages: '4 a 8 años',
     teacherId: 'danza',
     price: 'Consultar',
+    images: ['/danza-ritmica.jpeg'],
   },
   {
     id: 'inf-yoga-infantil',
@@ -92,6 +101,7 @@ export const classes: Class[] = [
     teacherId: 'yoga',
     price: 'Consultar',
     requirements: ['Ropa cómoda', 'Mat de yoga', 'Un adulto acompañante'],
+    images: ['/yoga.jpeg'],
   },
 
   // ---------- JÓVENES / ADULTXS ----------
@@ -102,6 +112,7 @@ export const classes: Class[] = [
     discipline: 'Yoga',
     teacherId: 'yoga',
     price: 'Consultar',
+    images: ['/yoga.jpeg'],
   },
   {
     id: 'adu-canto-guitarra',
@@ -110,6 +121,7 @@ export const classes: Class[] = [
     discipline: 'Música',
     teacherId: 'musica',
     price: 'Consultar',
+    images: ['/musica-teatro.jpeg'],
   },
   {
     id: 'adu-bachata-interm',
@@ -119,6 +131,7 @@ export const classes: Class[] = [
     level: 'inter',
     teacherId: 'danza',
     price: 'Consultar',
+    images: ['/lady-style.jpeg'],
   },
   {
     id: 'adu-teatro-martes',
@@ -127,6 +140,7 @@ export const classes: Class[] = [
     discipline: 'Teatro',
     teacherId: 'teatro',
     price: 'Consultar',
+    images: ['/teatro-adultos.jpeg'],
   },
   {
     id: 'adu-baile-mov-adul-mayores',
@@ -136,6 +150,7 @@ export const classes: Class[] = [
     teacherId: 'danza',
     price: 'Consultar',
     requirements: ['Ropa cómoda', 'Calzado deportivo', 'Botella de agua'],
+    images: ['/movimiento-baile.jpeg'],
   },
   {
     id: 'adu-yoga-flow',
@@ -144,6 +159,7 @@ export const classes: Class[] = [
     discipline: 'Yoga',
     teacherId: 'yoga',
     price: 'Consultar',
+    images: ['/yoga.jpeg'],
   },
   {
     id: 'adu-teatro-jueves',
@@ -152,6 +168,7 @@ export const classes: Class[] = [
     discipline: 'Teatro',
     teacherId: 'teatro',
     price: 'Consultar',
+    images: ['/teatro-adultos.jpeg'],
   },
   {
     id: 'adu-yoga-viernes',
@@ -160,6 +177,7 @@ export const classes: Class[] = [
     discipline: 'Yoga',
     teacherId: 'yoga',
     price: 'Consultar',
+    images: ['/yoga.jpeg'],
   },
   {
     id: 'adu-bujinkan',
@@ -169,6 +187,7 @@ export const classes: Class[] = [
     teacherId: 'artes-marciales',
     price: 'Consultar',
     requirements: ['Ropa cómoda', 'Botella de agua', 'Actitud positiva'],
+    images: ['/movimiento-baile.jpeg'],
   },
   {
     id: 'adu-flamenco',
@@ -177,6 +196,7 @@ export const classes: Class[] = [
     discipline: 'Danza',
     teacherId: 'danza',
     price: 'Consultar',
+    images: ['/flamenco.jpeg'],
   },
   {
     id: 'adu-salsa',
@@ -185,6 +205,7 @@ export const classes: Class[] = [
     discipline: 'Danza',
     teacherId: 'danza',
     price: 'Consultar',
+    images: ['/salsa.jpeg'],
   },
   {
     id: 'adu-danza-folclorica',
@@ -193,5 +214,6 @@ export const classes: Class[] = [
     discipline: 'Danza',
     teacherId: 'danza',
     price: 'Consultar',
+    images: ['/movimiento-baile.jpeg'],
   },
 ]

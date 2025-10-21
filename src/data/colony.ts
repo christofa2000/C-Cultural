@@ -27,7 +27,7 @@ export const colony: Colony[] = [
       'Excursiones',
       'Almuerzo incluido',
     ],
-    images: ['/verano.jpg', '/patiopro.jpg', '/arte-juego.jpg'],
+    images: ['/verano.jpeg', '/patiopro.jpg', '/arte-juego.jpg'],
   },
   {
     id: '2',
@@ -54,6 +54,6 @@ export const colony: Colony[] = [
       'Lectura y cuentos',
       'Almuerzo incluido',
     ],
-    images: ['/teatro-infantil.jpg', '/arte-juego.jpg'],
+    images: ['/invierno.jpeg', '/teatro-infantil.jpeg', '/arte-juego.jpg'],
   },
 ]
