@@ -5,12 +5,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'images.unsplash.com',
       },
     ],
-    unoptimized: true, // Para desarrollo local
   },
-  outputFileTracingRoot: process.cwd(),
 }
 
 export default nextConfig
