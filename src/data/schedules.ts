@@ -4,8 +4,8 @@ export const schedules: ClassSchedule[] = [
   // ---------- INFANCIAS ----------
   // LUNES (1)
   {
-    id: 'sc-inf-canto-guitarra-lun',
-    classId: 'inf-canto-guitarra',
+    id: 'sc-inf-musica-canto-guitarra-teclado-lun',
+    classId: 'inf-musica-canto-guitarra-teclado',
     weekday: 1,
     byAppointment: true,
     notes: 'Hora a convenir',
@@ -21,8 +21,8 @@ export const schedules: ClassSchedule[] = [
 
   // MARTES (2)
   {
-    id: 'sc-inf-teclado-mar',
-    classId: 'inf-teclado',
+    id: 'sc-inf-musica-canto-guitarra-teclado-mar',
+    classId: 'inf-musica-canto-guitarra-teclado',
     weekday: 2,
     byAppointment: true,
     notes: 'Hora a convenir',
@@ -48,23 +48,23 @@ export const schedules: ClassSchedule[] = [
     start: '16:30',
   },
   {
-    id: 'sc-inf-teatro-y-musica-mie-1745',
-    classId: 'inf-teatro-y-musica',
+    id: 'sc-inf-teatro-musica-mie-1745',
+    classId: 'inf-teatro-musica',
     weekday: 3,
     start: '17:45',
   },
 
   // JUEVES (4)
   {
-    id: 'sc-inf-canto-guitarra-jue',
-    classId: 'inf-canto-guitarra',
+    id: 'sc-inf-musica-canto-guitarra-teclado-jue',
+    classId: 'inf-musica-canto-guitarra-teclado',
     weekday: 4,
     byAppointment: true,
     notes: 'Hora a convenir',
   },
   {
-    id: 'sc-inf-musica-y-teatro-jue-1645',
-    classId: 'inf-musica-y-teatro',
+    id: 'sc-inf-teatro-musica-jue-1645',
+    classId: 'inf-teatro-musica',
     weekday: 4,
     start: '16:45',
     end: '18:00',
@@ -99,8 +99,8 @@ export const schedules: ClassSchedule[] = [
     start: '11:00',
   },
   {
-    id: 'sc-adu-canto-guitarra-lun',
-    classId: 'adu-canto-guitarra',
+    id: 'sc-adu-musica-canto-guitarra-teclado-lun',
+    classId: 'adu-musica-canto-guitarra-teclado',
     weekday: 1,
     byAppointment: true,
     notes: 'Hora a convenir',
@@ -140,8 +140,8 @@ export const schedules: ClassSchedule[] = [
 
   // JUEVES (4)
   {
-    id: 'sc-adu-canto-guitarra-jue',
-    classId: 'adu-canto-guitarra',
+    id: 'sc-adu-musica-canto-guitarra-teclado-jue',
+    classId: 'adu-musica-canto-guitarra-teclado',
     weekday: 4,
     byAppointment: true,
     notes: 'Hora a convenir',

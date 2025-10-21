@@ -3,13 +3,15 @@ import type { Class } from '@/lib/types'
 export const classes: Class[] = [
   // ---------- INFANCIAS ----------
   {
-    id: 'inf-canto-guitarra',
-    title: 'Canto / Guitarra',
+    id: 'inf-musica-canto-guitarra-teclado',
+    title: 'Música (Canto, Guitarra y Teclado)',
     audience: 'infancias',
     discipline: 'Música',
     ages: 'niñxs',
     teacherId: 'musica',
     price: 'Consultar',
+    description:
+      'Acordes, ritmos y lectura básica con canciones inspiradoras. Clases particulares.',
     images: ['/musica-teatro.jpeg'],
   },
   {
@@ -20,17 +22,9 @@ export const classes: Class[] = [
     ages: '6 a 11 años',
     teacherId: 'teatro',
     price: 'Consultar',
+    description:
+      'Historias, improvisaciones y juegos escénicos para fortalecer la expresión y la confianza grupal.',
     images: ['/teatro-infantil.jpeg'],
-  },
-  {
-    id: 'inf-teclado',
-    title: 'Teclado',
-    audience: 'infancias',
-    discipline: 'Música',
-    ages: 'niñxs',
-    teacherId: 'musica',
-    price: 'Consultar',
-    images: ['/musica-teatro.jpeg'],
   },
   {
     id: 'inf-danza-exp-corporal',
@@ -40,6 +34,8 @@ export const classes: Class[] = [
     ages: '3 a 5 años',
     teacherId: 'danza',
     price: 'Consultar',
+    description:
+      'Juego y movimiento libre para desarrollar coordinación y expresión emocional.',
     images: ['/movimiento-baile.jpeg'],
   },
   {
@@ -50,6 +46,8 @@ export const classes: Class[] = [
     ages: '4 a 6 años',
     teacherId: 'danza',
     price: 'Consultar',
+    description:
+      'Coreografías urbanas adaptadas a la energía infantil, fomentando actitud y trabajo en equipo.',
     images: ['/urbano-kid.jpeg'],
   },
   {
@@ -60,27 +58,21 @@ export const classes: Class[] = [
     ages: '3 a 6 años',
     teacherId: 'team',
     price: 'Consultar',
+    description:
+      'Pinturas, materiales reciclados y proyectos creativos que fomentan la confianza y la imaginación.',
     images: ['/arte-juego.jpg'],
   },
   {
-    id: 'inf-teatro-y-musica',
+    id: 'inf-teatro-musica',
     title: 'Teatro y Música',
     audience: 'infancias',
     discipline: 'Teatro/Música',
     ages: '3 a 6 años',
     teacherId: 'team',
     price: 'Consultar',
+    description:
+      'Canciones, instrumentos y escenas para despertar la curiosidad artística y explorar personajes.',
     images: ['/teatro-infantil.jpeg'],
-  },
-  {
-    id: 'inf-musica-y-teatro',
-    title: 'Música y Teatro',
-    audience: 'infancias',
-    discipline: 'Música/Teatro',
-    ages: '3 a 5 años',
-    teacherId: 'team',
-    price: 'Consultar',
-    images: ['/musica-teatro.jpeg'],
   },
   {
     id: 'inf-danza-ritmica',
@@ -90,6 +82,8 @@ export const classes: Class[] = [
     ages: '4 a 8 años',
     teacherId: 'danza',
     price: 'Consultar',
+    description:
+      'Percusión corporal y juegos rítmicos para mejorar postura y disfrutar del movimiento.',
     images: ['/danza-ritmica.jpeg'],
   },
   {
@@ -100,6 +94,8 @@ export const classes: Class[] = [
     ages: '3 a 6 años + 1 adulto',
     teacherId: 'yoga',
     price: 'Consultar',
+    description:
+      'Posturas, respiración y cuentos motores para favorecer la concentración y la calma.',
     requirements: ['Ropa cómoda', 'Mat de yoga', 'Un adulto acompañante'],
     images: ['/yoga.jpeg'],
   },
@@ -112,15 +108,18 @@ export const classes: Class[] = [
     discipline: 'Yoga',
     teacherId: 'yoga',
     price: 'Consultar',
+    description: 'Mejora la postura y alivia tensiones.',
     images: ['/yoga.jpeg'],
   },
   {
-    id: 'adu-canto-guitarra',
-    title: 'Canto / Guitarra',
+    id: 'adu-musica-canto-guitarra-teclado',
+    title: 'Música (Canto, Guitarra y Teclado)',
     audience: 'adultxs',
     discipline: 'Música',
     teacherId: 'musica',
     price: 'Consultar',
+    description:
+      'Acordes, ritmos y lectura básica con canciones inspiradoras. Clases particulares.',
     images: ['/musica-teatro.jpeg'],
   },
   {
@@ -131,7 +130,9 @@ export const classes: Class[] = [
     level: 'inter',
     teacherId: 'danza',
     price: 'Consultar',
-    images: ['/lady-style.jpeg'],
+    description:
+      'Disociación, shines (pasos sueltos), figuras en pareja y técnica de conexión.',
+    images: ['/bachata.jpg'],
   },
   {
     id: 'adu-teatro-martes',
@@ -140,6 +141,8 @@ export const classes: Class[] = [
     discipline: 'Teatro',
     teacherId: 'teatro',
     price: 'Consultar',
+    description:
+      'Montaje teatral para quienes tienen experiencia e improvisación teatral para quienes se inician.',
     images: ['/teatro-adultos.jpeg'],
   },
   {
@@ -149,6 +152,8 @@ export const classes: Class[] = [
     discipline: 'Danza',
     teacherId: 'danza',
     price: 'Consultar',
+    description:
+      'Ritmos suaves y ejercicios adaptados para moverse sin presión. Enfocado en articulaciones, equilibrio y diversión.',
     requirements: ['Ropa cómoda', 'Calzado deportivo', 'Botella de agua'],
     images: ['/movimiento-baile.jpeg'],
   },
@@ -159,6 +164,7 @@ export const classes: Class[] = [
     discipline: 'Yoga',
     teacherId: 'yoga',
     price: 'Consultar',
+    description: 'Práctica dinámica, sincronizando asanas y respiración.',
     images: ['/yoga.jpeg'],
   },
   {
@@ -168,6 +174,8 @@ export const classes: Class[] = [
     discipline: 'Teatro',
     teacherId: 'teatro',
     price: 'Consultar',
+    description:
+      'Montaje teatral para quienes tienen experiencia e improvisación teatral para quienes se inician.',
     images: ['/teatro-adultos.jpeg'],
   },
   {
@@ -177,6 +185,8 @@ export const classes: Class[] = [
     discipline: 'Yoga',
     teacherId: 'yoga',
     price: 'Consultar',
+    description:
+      'Combina Hatha, dinámico e Iyengar con movimiento y relajación.',
     images: ['/yoga.jpeg'],
   },
   {
@@ -186,8 +196,10 @@ export const classes: Class[] = [
     discipline: 'Artes Marciales',
     teacherId: 'artes-marciales',
     price: 'Consultar',
+    description:
+      'Práctica de artes marciales tradicionales japonesas con enfoque en defensa personal y desarrollo personal.',
     requirements: ['Ropa cómoda', 'Botella de agua', 'Actitud positiva'],
-    images: ['/movimiento-baile.jpeg'],
+    images: ['/artes-marciales.jpg'],
   },
   {
     id: 'adu-flamenco',
@@ -196,6 +208,8 @@ export const classes: Class[] = [
     discipline: 'Danza',
     teacherId: 'danza',
     price: 'Consultar',
+    description:
+      'Zapateo, braceo y compás con expresión intensa. Nivel inicial e intermedio.',
     images: ['/flamenco.jpeg'],
   },
   {
@@ -205,6 +219,8 @@ export const classes: Class[] = [
     discipline: 'Danza',
     teacherId: 'danza',
     price: 'Consultar',
+    description:
+      'Pasos, giros y figuras con musicalidad caribeña. Nivel inicial e intermedio.',
     images: ['/salsa.jpeg'],
   },
   {
@@ -214,6 +230,8 @@ export const classes: Class[] = [
     discipline: 'Danza',
     teacherId: 'danza',
     price: 'Consultar',
-    images: ['/movimiento-baile.jpeg'],
+    description:
+      'Zambas, chacareras y ritmos tradicionales con técnica, alegría y bienestar.',
+    images: ['/folklore.jpg'],
   },
 ]
