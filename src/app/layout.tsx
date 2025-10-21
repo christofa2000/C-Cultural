@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-AR" className="light">
+    <html lang="es-AR">
       <body
         className={`${fraunces.variable} ${plusJakarta.variable} antialiased`}
       >

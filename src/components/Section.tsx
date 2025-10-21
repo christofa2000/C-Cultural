@@ -69,12 +69,12 @@ export default function Section({
           <div className="mb-8 text-center">
             <h2
               id={`${id}-title`}
-              className="bg-linear-to-r from-violet-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl"
+              className="bg-linear-to-r from-violet-400 to-violet-300 bg-clip-text text-3xl font-bold text-transparent md:text-4xl"
             >
               {title}
             </h2>
             {description && (
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-300">
                 {description}
               </p>
             )}

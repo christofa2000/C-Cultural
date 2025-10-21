@@ -68,7 +68,7 @@ export default function Home() {
           id="clases"
           title="Nuestras Clases"
           description="Descubrí nuestras clases de danza, teatro, música y bienestar para todas las edades"
-          className="bg-linear-to-b from-violet-50 to-pink-50"
+          className=""
         >
           <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredClasses.map((classItem) => {
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/clases"
-              className="inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-6 py-3 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+              className="inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-violet-500 px-6 py-3 text-white transition-all duration-200 hover:from-violet-700 hover:to-violet-600 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
             >
               Ver todas las clases
               <svg
@@ -114,21 +114,21 @@ export default function Home() {
           id="colonia"
           title="Colonia de Verano e Invierno"
           description="Actividades recreativas, deportivas y artísticas para niños y niñas"
-          className="bg-linear-to-b from-pink-50 to-violet-50"
+          className=""
         >
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-lg border border-violet-200 bg-white p-8 shadow-lg">
+            <div className="rounded-lg border border-violet-700 bg-neutral-900 p-8 shadow-lg">
               <div className="grid gap-8 md:grid-cols-2">
                 <div>
-                  <h3 className="mb-4 text-2xl font-semibold text-gray-900">
+                  <h3 className="mb-4 text-2xl font-semibold text-white">
                     {activeColony.season === 'verano'
                       ? 'Colonia de Verano'
                       : 'Colonia de Invierno'}
                   </h3>
-                  <p className="mb-4 text-gray-700">
+                  <p className="mb-4 text-neutral-300">
                     {activeColony.description}
                   </p>
-                  <div className="space-y-2 text-sm text-gray-600">
+                  <div className="space-y-2 text-sm text-neutral-400">
                     <p>
                       <strong>Edades:</strong> {activeColony.ages}
                     </p>
@@ -141,7 +141,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="mb-3 font-medium text-gray-800">
+                  <h4 className="mb-3 font-medium text-neutral-200">
                     Actividades incluidas:
                   </h4>
                   <ul className="space-y-2">
@@ -150,7 +150,7 @@ export default function Home() {
                       .map((activity, index) => (
                         <li
                           key={index}
-                          className="flex items-center text-sm text-gray-700"
+                          className="flex items-center text-sm text-neutral-300"
                         >
                           <svg
                             className="mr-2 h-4 w-4 shrink-0 text-violet-400"
@@ -192,7 +192,7 @@ export default function Home() {
                 </a>
                 <Link
                   href="/colonia"
-                  className="inline-flex flex-1 items-center justify-center rounded-lg border border-violet-300 bg-white px-6 py-3 text-violet-700 transition-all duration-200 hover:bg-violet-50 hover:text-violet-800 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                  className="inline-flex flex-1 items-center justify-center rounded-lg border border-violet-700 bg-neutral-800 px-6 py-3 text-neutral-200 transition-all duration-200 hover:bg-neutral-700 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
                 >
                   Ver más información
                 </Link>
@@ -206,7 +206,7 @@ export default function Home() {
           id="agenda"
           title="Próximos Eventos"
           description="No te pierdas nuestras actividades especiales y eventos"
-          className="bg-linear-to-b from-violet-50 to-pink-50"
+          className=""
         >
           <div className="mx-auto max-w-4xl">
             <EventList events={upcomingEvents} maxItems={3} />
@@ -218,7 +218,7 @@ export default function Home() {
           id="alquiler"
           title="Alquiler del Salón"
           description="Espacios perfectos para tus eventos y actividades"
-          className="bg-linear-to-b from-pink-50 to-violet-50"
+          className=""
         >
           <div className="mx-auto max-w-4xl">
             {mainRoom && <RoomCard room={mainRoom} showFullDetails={false} />}
@@ -230,7 +230,7 @@ export default function Home() {
           id="contacto"
           title="Contacto"
           description="Estamos aquí para ayudarte a encontrar la actividad perfecta"
-          className="bg-linear-to-b from-violet-50 to-pink-50"
+          className=""
         >
           <div className="mx-auto max-w-4xl">
             <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -264,7 +264,7 @@ export default function Home() {
             <div className="text-center">
               <Link
                 href="/contacto"
-                className="inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-6 py-3 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                className="inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-violet-500 px-6 py-3 text-white transition-all duration-200 hover:from-violet-700 hover:to-violet-600 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
               >
                 Ir a Contacto
                 <svg
@@ -286,7 +286,7 @@ export default function Home() {
         </Section>
 
         {/* CTA Final */}
-        <section className="bg-linear-to-r from-violet-600 via-violet-500 to-pink-500 py-20">
+        <section className="bg-linear-to-r from-violet-600 via-violet-500 to-violet-600 py-20">
           <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
             <h2 className="font-fraunces mb-6 text-3xl font-bold text-white sm:text-4xl">
               ¿Listo para comenzar tu viaje artístico?

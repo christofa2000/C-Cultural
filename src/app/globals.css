@@ -47,71 +47,37 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #fef7ff; /* violet-50 - fondo suave violeta/rosa */
-  --foreground: #1f2937; /* gray-800 - texto oscuro para contraste */
-  --card: #ffffff; /* blanco puro para tarjetas */
-  --card-foreground: #1f2937; /* gray-800 */
-  --popover: #ffffff; /* blanco puro para popovers */
-  --popover-foreground: #1f2937; /* gray-800 */
-  --primary: #8b5cf6; /* violet-500 */
+  --background: #1b103f; /* violeta oscuro elegante */
+  --foreground: #f3e8ff; /* texto claro y legible */
+  --card: #2d1b69; /* tarjetas violeta oscuro */
+  --card-foreground: #f3e8ff;
+  --popover: #2d1b69;
+  --popover-foreground: #f3e8ff;
+  --primary: #a855f7; /* violeta brillante */
   --primary-foreground: #ffffff;
-  --secondary: #6d28d9; /* violet-700 */
+  --secondary: #7c3aed; /* violeta medio */
   --secondary-foreground: #ffffff;
-  --muted: #f3f4f6; /* gray-100 - fondo suave para elementos muted */
-  --muted-foreground: #6b7280; /* gray-500 - texto muted */
-  --accent: #ec4899; /* pink-500 */
+  --muted: #4c1d95; /* elementos muted */
+  --muted-foreground: #c4b5fd; /* texto muted claro */
+  --accent: #ec4899; /* rosa moderno */
   --accent-foreground: #ffffff;
-  --destructive: #ef4444; /* red-500 */
-  --border: #e5e7eb; /* gray-200 - bordes suaves */
-  --input: #f9fafb; /* gray-50 - fondo de inputs */
-  --ring: #8b5cf6; /* violet-500 */
-  --chart-1: #8b5cf6; /* violet-500 */
-  --chart-2: #ec4899; /* pink-500 */
-  --chart-3: #c4b5fd; /* violet-300 */
-  --chart-4: #f9a8d4; /* pink-300 */
-  --chart-5: #6d28d9; /* violet-700 */
-  --sidebar: #ffffff; /* blanco para sidebar */
-  --sidebar-foreground: #1f2937; /* gray-800 */
-  --sidebar-primary: #8b5cf6; /* violet-500 */
+  --destructive: #ef4444;
+  --border: #6b21a8; /* bordes violeta */
+  --input: #4c1d95; /* inputs violeta */
+  --ring: #a855f7;
+  --chart-1: #a855f7;
+  --chart-2: #ec4899;
+  --chart-3: #c4b5fd;
+  --chart-4: #f9a8d4;
+  --chart-5: #7c3aed;
+  --sidebar: #2d1b69;
+  --sidebar-foreground: #f3e8ff;
+  --sidebar-primary: #a855f7;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f3f4f6; /* gray-100 - acento suave */
-  --sidebar-accent-foreground: #1f2937; /* gray-800 */
-  --sidebar-border: #e5e7eb; /* gray-200 - borde suave */
-  --sidebar-ring: #8b5cf6; /* violet-500 */
-}
-
-.dark {
-  --background: #1a0b2e; /* violet-950 - fondo oscuro violeta */
-  --foreground: #f3e8ff; /* violet-100 - texto claro */
-  --card: #2d1b69; /* violet-900 - tarjetas oscuras */
-  --card-foreground: #f3e8ff; /* violet-100 */
-  --popover: #2d1b69; /* violet-900 */
-  --popover-foreground: #f3e8ff; /* violet-100 */
-  --primary: #a855f7; /* violet-500 - más brillante para modo oscuro */
-  --primary-foreground: #ffffff;
-  --secondary: #7c3aed; /* violet-600 */
-  --secondary-foreground: #ffffff;
-  --muted: #4c1d95; /* violet-800 - elementos muted oscuros */
-  --muted-foreground: #c4b5fd; /* violet-300 - texto muted claro */
-  --accent: #ec4899; /* pink-500 */
-  --accent-foreground: #ffffff;
-  --destructive: #ef4444; /* red-500 */
-  --border: #6b21a8; /* violet-700 - bordes violetas */
-  --input: #4c1d95; /* violet-800 - inputs oscuros */
-  --ring: #a855f7; /* violet-500 */
-  --chart-1: #a855f7; /* violet-500 */
-  --chart-2: #ec4899; /* pink-500 */
-  --chart-3: #c4b5fd; /* violet-300 */
-  --chart-4: #f9a8d4; /* pink-300 */
-  --chart-5: #7c3aed; /* violet-600 */
-  --sidebar: #2d1b69; /* violet-900 */
-  --sidebar-foreground: #f3e8ff; /* violet-100 */
-  --sidebar-primary: #a855f7; /* violet-500 */
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #4c1d95; /* violet-800 */
-  --sidebar-accent-foreground: #f3e8ff; /* violet-100 */
-  --sidebar-border: #6b21a8; /* violet-700 */
-  --sidebar-ring: #a855f7; /* violet-500 */
+  --sidebar-accent: #4c1d95;
+  --sidebar-accent-foreground: #f3e8ff;
+  --sidebar-border: #6b21a8;
+  --sidebar-ring: #a855f7;
 }
 
 @layer base {
@@ -123,11 +89,6 @@
     scroll-behavior: smooth;
   }
 
-  /* Forzar modo claro por defecto */
-  html:not(.dark) {
-    color-scheme: light;
-  }
-
   body {
     @apply bg-background text-foreground font-sans;
   }
@@ -136,14 +97,14 @@
 @layer utilities {
   /* Gradientes violeta+rosa según PlanMaestro */
   .gradient-violet-rosa {
-    @apply bg-linear-to-r from-violet-600 via-violet-500 to-pink-500;
+    @apply bg-linear-to-r from-violet-600 via-violet-500 to-violet-600;
   }
 
   .gradient-aurora-patio {
     background: radial-gradient(
       80% 120% at 50% 0%,
-      rgba(236, 72, 153, 0.15),
-      rgba(139, 92, 246, 0.08) 40%,
+      rgba(168, 85, 247, 0.1),
+      rgba(124, 58, 237, 0.05) 40%,
       transparent 70%
     );
   }
