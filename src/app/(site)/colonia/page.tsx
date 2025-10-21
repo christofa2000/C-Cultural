@@ -35,13 +35,13 @@ export default function ColonyPage() {
               title="Colonia de Verano"
               description={summerColony.description}
               ages={summerColony.ages}
-              dates={summerColony.dates}
               images={summerColony.images || []}
               whatsappHref={buildColonyPreEnroll({
                 kidName: '',
                 age: '',
                 season: 'verano',
               })}
+              dates={[]}
             />
           )}
 
@@ -52,13 +52,13 @@ export default function ColonyPage() {
               title="Colonia de Invierno"
               description={winterColony.description}
               ages={winterColony.ages}
-              dates={winterColony.dates}
               images={winterColony.images || []}
               whatsappHref={buildColonyPreEnroll({
                 kidName: '',
                 age: '',
                 season: 'invierno',
               })}
+              dates={[]}
             />
           )}
         </div>
@@ -120,26 +120,11 @@ export default function ColonyPage() {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  Almuerzo incluido
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    className="mr-2 h-4 w-4 shrink-0 text-violet-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
                   Espacios seguros y supervisados
                 </li>
               </ul>
             </div>
+
             <div>
               <h3 className="mb-3 text-lg font-medium text-neutral-200">
                 Requisitos

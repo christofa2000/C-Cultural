@@ -16,14 +16,12 @@ export const colony: Colony[] = [
     ages: '4 a 12 años',
     description:
       'Colonia de verano con actividades recreativas, deportivas y artísticas en nuestro hermoso patio verde.',
-    price: '$15.000/mes',
     schedule: 'Lunes a Viernes de 9:00 a 17:00',
     activities: [
       'Actividades deportivas',
       'Talleres de arte',
       'Juegos teatrales',
       'Música y canto',
-      'Natación (piscina externa)',
       'Excursiones',
       'Almuerzo incluido',
     ],

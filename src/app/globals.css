@@ -87,46 +87,73 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
   }
+
+  /* TITULOS: alto contraste por defecto */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #ffffff; /* fuerza blanco para visibilidad */
+  }
+
+  /* Contraste mejor para párrafos secundarios */
+  p,
+  li,
+  small {
+    color: #e9ddff; /* un poco más claro que foreground en bloques oscuros */
+  }
+
+  /* Selección de texto a tono */
+  ::selection {
+    background: rgba(168, 85, 247, 0.35);
+    color: #f3e8ff;
+  }
 }
 
 @layer utilities {
-  /* Gradientes violeta+rosa según PlanMaestro */
+  /* Gradiente violeta/rosa oscuro */
   .gradient-violet-rosa {
-    @apply bg-linear-to-r from-violet-600 via-violet-500 to-violet-600;
+    @apply bg-linear-to-r from-violet-700 via-fuchsia-600 to-pink-600;
   }
 
-  .gradient-aurora-patio {
-    background: radial-gradient(
-      80% 120% at 50% 0%,
-      rgba(168, 85, 247, 0.1),
-      rgba(124, 58, 237, 0.05) 40%,
-      transparent 70%
-    );
+  /* Fondo base con leve gradiente violeta oscuro */
+  .bg-app {
+    background: linear-gradient(to bottom, #1b103f 0%, #2d1b69 100%);
+  }
+
+  /* Título sólido (útil si antes tenía bg-clip + text-transparent) */
+  .title-solid {
+    color: #fff !important;
+    -webkit-text-fill-color: currentColor !important;
+    background-image: none !important;
+  }
+
+  /* Elevar legibilidad sobre imágenes/fondos vivos */
+  .text-elevated {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
   }
 
   /* Tipografías */
   .font-fraunces {
     font-family: 'Fraunces', serif;
   }
-
   .font-plus-jakarta {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 }
 
-/* Fallback global */
-html {
-  color-scheme: dark;
-}
-
+/* Fallback global por si algún bloque pisa el fondo */
 body,
 main,
 section {
-  background-color: #1b103f !important; /* violeta oscuro */
+  background-color: #2a1a63 !important; /* violeta oscuro */
   color: #f3e8ff !important; /* texto claro */
 }

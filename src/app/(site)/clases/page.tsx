@@ -1,100 +1,30 @@
 'use client'
 
+import AudienceFilter from '@/components/AudienceFilter'
 import ClassCard from '@/components/ClassCard'
-import FilterChips, { Filters } from '@/components/FilterChips'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { classes } from '@/data/classes'
 import { schedules } from '@/data/schedules'
 import { teachers } from '@/data/teachers'
+import { Audience } from '@/lib/types'
 import { useMemo, useState } from 'react'
 
 export default function ClassesPage() {
-  const [filters, setFilters] = useState<Filters>({})
+  const [selectedAudience, setSelectedAudience] = useState<Audience | null>(
+    null
+  )
 
-  // Opciones para los filtros
-  const filterOptions = useMemo(() => {
-    const audiences = [
-      { value: 'adultxs' as const, label: 'Adultxs' },
-      { value: 'infancias' as const, label: 'Infancias' },
-    ]
-
-    const weekdays = [
-      { value: 1, label: 'Lunes' },
-      { value: 2, label: 'Martes' },
-      { value: 3, label: 'Miércoles' },
-      { value: 4, label: 'Jueves' },
-      { value: 5, label: 'Viernes' },
-      { value: 6, label: 'Sábado' },
-      { value: 0, label: 'Domingo' },
-    ]
-
-    const teacherOptions = teachers.map((teacher) => ({
-      value: teacher.id,
-      label: teacher.name,
-    }))
-
-    const levels = [
-      { value: 'inic' as const, label: 'Inicial' },
-      { value: 'inter' as const, label: 'Intermedio' },
-      { value: 'avanz' as const, label: 'Avanzado' },
-    ]
-
-    // Obtener disciplinas únicas de las clases
-    const disciplines = Array.from(
-      new Set(classes.map((c) => c.discipline).filter(Boolean))
-    ).map((discipline) => ({
-      value: discipline!,
-      label: discipline!,
-    }))
-
-    return {
-      audiences,
-      weekdays,
-      teachers: teacherOptions,
-      levels,
-      disciplines,
-    }
-  }, [])
-
-  // Filtrar clases según los filtros activos
+  // Filtrar clases según la audiencia seleccionada
   const filteredClasses = useMemo(() => {
-    return classes.filter((classItem) => {
-      // Filtro por audiencia
-      if (filters.audience && classItem.audience !== filters.audience) {
-        return false
-      }
+    if (!selectedAudience) {
+      return classes
+    }
 
-      // Filtro por nivel
-      if (filters.level && classItem.level !== filters.level) {
-        return false
-      }
-
-      // Filtro por disciplina
-      if (filters.discipline && classItem.discipline !== filters.discipline) {
-        return false
-      }
-
-      // Filtro por docente
-      if (filters.teacherId && classItem.teacherId !== filters.teacherId) {
-        return false
-      }
-
-      // Filtro por día de la semana
-      if (filters.weekday !== undefined) {
-        const hasScheduleOnDay = schedules.some(
-          (schedule) =>
-            schedule.classId === classItem.id &&
-            schedule.weekday === filters.weekday
-        )
-        if (!hasScheduleOnDay) {
-          return false
-        }
-      }
-
-      return true
-    })
-  }, [filters])
+    return classes.filter(
+      (classItem) => classItem.audience === selectedAudience
+    )
+  }, [selectedAudience])
 
   return (
     <>
@@ -102,30 +32,29 @@ export default function ClassesPage() {
       <main className="bg-background text-foreground min-h-screen">
         <div className="container mx-auto px-4 py-8 md:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="bg-linear-to-r from-violet-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
-              Clases
+          <div className="mb-12 text-center">
+            <h1 className="mb-4 bg-linear-to-r from-violet-400 to-violet-300 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+              Nuestras Clases
             </h1>
-            <p className="mt-2 text-lg text-neutral-400">
-              Adultxs e infancias · filtrá por día, profe y nivel
+            <p className="mx-auto max-w-2xl text-xl text-neutral-300">
+              Descubrí todas las actividades artísticas que tenemos para vos
             </p>
           </div>
 
-          {/* Filtros */}
-          <div className="mb-8">
-            <FilterChips
-              filters={filters}
-              options={filterOptions}
-              onChange={setFilters}
+          {/* Filtro de Audiencia */}
+          <div className="mb-12">
+            <AudienceFilter
+              selectedAudience={selectedAudience}
+              onAudienceChange={setSelectedAudience}
             />
           </div>
 
           {/* Resultados */}
-          <div className="mb-6">
-            <p className="text-sm text-neutral-400">
-              {filteredClasses.length === classes.length
-                ? `Mostrando todas las ${classes.length} clases`
-                : `Mostrando ${filteredClasses.length} de ${classes.length} clases`}
+          <div className="mb-8 text-center">
+            <p className="text-lg text-neutral-300">
+              {selectedAudience
+                ? `Mostrando ${filteredClasses.length} clases para ${selectedAudience === 'adultxs' ? 'adultxs' : 'infancias'}`
+                : `Mostrando todas las ${classes.length} clases disponibles`}
             </p>
           </div>
 
@@ -173,8 +102,8 @@ export default function ClassesPage() {
                   Probá ajustando los filtros para encontrar lo que buscás.
                 </p>
                 <button
-                  onClick={() => setFilters({})}
-                  className="inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-4 py-2 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                  onClick={() => setSelectedAudience(null)}
+                  className="inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-violet-500 px-6 py-3 text-white transition-all duration-200 hover:from-violet-700 hover:to-violet-600 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
                 >
                   Ver todas las clases
                 </button>

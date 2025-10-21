@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { buildGeneralInquiry } from '@/lib/whatsapp'
-import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react'
+import { Bike, Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 
 export default function ContactPage() {
   const whatsappHref = buildGeneralInquiry(
@@ -17,11 +17,14 @@ export default function ContactPage() {
         <section className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-12 text-center">
-            <h1 className="bg-linear-to-r from-violet-600 via-violet-500 to-pink-500 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+            <h1 className="bg-white bg-linear-to-r via-violet-500 to-pink-500 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
               Contacto
             </h1>
             <p className="mt-4 text-lg text-neutral-300">
               Estamos en Chivilcoy 3051, CABA
+            </p>
+            <p className="mt-1 text-sm text-pink-400">
+              🚲 Espacio para bicicletas
             </p>
             <p className="mt-2 text-neutral-400">
               ¡Contactanos y te ayudamos a encontrar la actividad perfecta para
@@ -35,44 +38,46 @@ export default function ContactPage() {
               Formas de contacto
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Email */}
               <ContactCard
                 icon={<Mail className="h-6 w-6 text-pink-400" />}
                 label="espaciochivilcoy@hotmail.com"
                 href="mailto:espaciochivilcoy@hotmail.com"
               />
 
-              {/* WhatsApp */}
               <ContactCard
                 icon={<Phone className="h-6 w-6 text-green-400" />}
                 label="WhatsApp"
                 href="https://wa.me/5491141690883"
               />
 
-              {/* Instagram */}
               <ContactCard
                 icon={<Instagram className="h-6 w-6 text-pink-400" />}
                 label="@espaciochivilcoy"
                 href="https://www.instagram.com/espaciochivilcoy"
               />
 
-              {/* Facebook */}
               <ContactCard
                 icon={<Facebook className="h-6 w-6 text-blue-400" />}
                 label="Facebook"
                 href="https://www.facebook.com/EspacioChivilcoy"
               />
 
-              {/* Ubicación */}
               <ContactCard
                 icon={<MapPin className="h-6 w-6 text-violet-400" />}
                 label="Chivilcoy 3051, CABA"
                 href="https://www.google.com/maps/place/Chivilcoy+3051,+C1417+Cdad.+Aut%C3%B3noma+de+Buenos+Aires"
               />
+
+              {/* Nuevo: espacio para bicicletas */}
+              <ContactCard
+                icon={<Bike className="h-6 w-6 text-pink-400" />}
+                label="Espacio para bicicletas"
+                href="#"
+              />
             </div>
           </div>
 
-          {/* Información adicional */}
+          {/* Horarios de atención */}
           <div className="mb-12 rounded-lg border border-white/10 bg-neutral-900 p-6">
             <h3 className="mb-4 text-xl font-semibold text-white">
               Horarios de atención
@@ -119,6 +124,8 @@ export default function ContactPage() {
             <p className="mt-4 text-center text-sm text-neutral-400">
               <MapPin className="mr-2 inline h-4 w-4" />
               Chivilcoy 3051, Ciudad Autónoma de Buenos Aires
+              <br />
+              <span className="text-pink-400">🚲 Espacio para bicicletas</span>
             </p>
           </div>
 
