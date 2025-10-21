@@ -23,6 +23,9 @@ export default function Section({
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -35,14 +38,11 @@ export default function Section({
       }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
+    observer.observe(el)
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(el)
+      observer.disconnect()
     }
   }, [])
 

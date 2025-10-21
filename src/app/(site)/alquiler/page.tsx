@@ -4,6 +4,7 @@ import RoomGallery from '@/components/RoomGallery'
 import { rooms } from '@/data/rooms'
 import { buildRoomBooking } from '@/lib/whatsapp'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Alquiler del Salón | Centro Cultural Chivilcoy',
@@ -214,10 +215,13 @@ export default function AlquilerPage() {
                       key={index}
                       className="relative aspect-square overflow-hidden rounded-lg"
                     >
-                      <img
+                      <Image
                         src={image}
                         alt={`Patio verde - imagen ${index + 1}`}
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        loading="lazy"
                       />
                     </div>
                   ))}

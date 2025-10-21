@@ -27,7 +27,10 @@ export default function FilterChips({
   options,
   onChange,
 }: FilterChipsProps) {
-  const handleFilterChange = (key: keyof Filters, value: any) => {
+  const handleFilterChange = <K extends keyof Filters>(
+    key: K,
+    value: Filters[K]
+  ) => {
     const newFilters = { ...filters }
 
     if (value === undefined || value === '') {
