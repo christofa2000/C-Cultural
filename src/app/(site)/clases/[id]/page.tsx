@@ -9,13 +9,16 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 interface ClassDetailPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function ClassDetailPage({ params }: ClassDetailPageProps) {
-  const classItem = classes.find((c) => c.id === params.id)
+export default async function ClassDetailPage({
+  params,
+}: ClassDetailPageProps) {
+  const { id } = await params
+  const classItem = classes.find((c) => c.id === id)
 
   if (!classItem) {
     notFound()
@@ -258,10 +261,18 @@ export default function ClassDetailPage({ params }: ClassDetailPageProps) {
                   </h3>
                   <div className="space-y-3">
                     {classSchedules.map((schedule) => {
+                      const timeDisplay = schedule.byAppointment
+                        ? 'Hora a convenir'
+                        : schedule.start && schedule.end
+                          ? `${schedule.start} - ${schedule.end}`
+                          : schedule.start
+                            ? `Desde ${schedule.start}`
+                            : 'Horario a confirmar'
+
                       const whatsappHref = buildClassEnroll({
                         title: classItem.title,
                         day: weekdayLabels[schedule.weekday],
-                        time: schedule.start,
+                        time: schedule.start || 'Hora a convenir',
                       })
 
                       return (
@@ -274,8 +285,13 @@ export default function ClassDetailPage({ params }: ClassDetailPageProps) {
                               {weekdayLabels[schedule.weekday]}
                             </p>
                             <p className="text-sm text-neutral-400">
-                              {schedule.start} - {schedule.end}
+                              {timeDisplay}
                             </p>
+                            {schedule.notes && (
+                              <p className="text-xs text-neutral-500">
+                                {schedule.notes}
+                              </p>
+                            )}
                             {schedule.spots && (
                               <p className="text-xs text-neutral-500">
                                 {schedule.spots} cupos disponibles

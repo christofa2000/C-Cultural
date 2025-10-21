@@ -33,10 +33,11 @@ export interface Class {
   title: string
   audience: Audience
   level?: ClassLevel
+  discipline?: string
+  ages?: string // ej: "3 a 6 años"
   description?: string
   teacherId: string
   images?: string[]
-  discipline?: string
   requirements?: string[]
   price?: string
 }
@@ -45,8 +46,10 @@ export interface ClassSchedule {
   id: string
   classId: string
   weekday: 0 | 1 | 2 | 3 | 4 | 5 | 6 // 0 = domingo, 1 = lunes, etc.
-  start: string // formato HH:mm
-  end: string // formato HH:mm
+  start?: string // formato HH:mm (opcional si es byAppointment)
+  end?: string // formato HH:mm (opcional si no se especifica)
+  byAppointment?: boolean // Hora a convenir
+  notes?: string
   spots?: number
   available?: boolean
 }
@@ -73,5 +76,3 @@ export interface Colony {
   schedule?: string
   activities?: string[]
 }
-
-

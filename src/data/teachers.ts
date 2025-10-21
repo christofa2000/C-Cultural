@@ -1,36 +1,41 @@
-import { Teacher } from '@/lib/types'
+import type { Teacher } from '@/lib/types'
 
 export const teachers: Teacher[] = [
   {
-    id: '1',
-    name: 'María González',
-    bioShort: 'Profesora de danza con más de 10 años de experiencia',
-    specialties: ['Danza contemporánea', 'Jazz', 'Expresión corporal'],
+    id: 'team',
+    name: 'Equipo Chivilcoy',
+    specialties: ['Arte', 'Teatro', 'Música'],
   },
   {
-    id: '2',
-    name: 'Carlos Rodríguez',
-    bioShort: 'Instructor de teatro y expresión artística',
-    specialties: ['Teatro', 'Improvisación', 'Expresión corporal'],
+    id: 'musica',
+    name: 'Docente de Música',
+    specialties: ['Música', 'Canto', 'Guitarra', 'Teclado'],
   },
   {
-    id: '3',
-    name: 'Ana Martínez',
-    bioShort: 'Especialista en actividades para infancias',
-    specialties: ['Danza infantil', 'Juegos teatrales', 'Expresión creativa'],
+    id: 'danza',
+    name: 'Docente de Danza',
+    specialties: [
+      'Danza',
+      'Expresión Corporal',
+      'Bachata',
+      'Flamenco',
+      'Salsa',
+      'Folclórica',
+    ],
   },
   {
-    id: '4',
-    name: 'Luis Fernández',
-    bioShort: 'Profesor de música y canto',
-    specialties: ['Canto', 'Guitarra', 'Música para niños'],
+    id: 'teatro',
+    name: 'Docente de Teatro',
+    specialties: ['Teatro', 'Actuación', 'Improvisación'],
   },
   {
-    id: '5',
-    name: 'Sofia Herrera',
-    bioShort: 'Instructora de yoga y mindfulness',
-    specialties: ['Yoga', 'Meditación', 'Relajación'],
+    id: 'yoga',
+    name: 'Docente de Yoga',
+    specialties: ['Yoga', 'Postural', 'Flow', 'Infantil'],
+  },
+  {
+    id: 'artes-marciales',
+    name: 'Instructor de Bujinkan',
+    specialties: ['Artes Marciales', 'Bujinkan', 'Defensa Personal'],
   },
 ]
-
-

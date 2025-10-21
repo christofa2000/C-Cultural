@@ -2,6 +2,7 @@
 
 import { buildGeneralInquiry } from '@/lib/whatsapp'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const navigation = [
@@ -15,10 +16,22 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const whatsappHref = buildGeneralInquiry(
     'Hola, me interesa conocer más sobre las actividades del centro cultural.'
   )
+
+  // Función para resolver href según contexto
+  const resolveHref = (itemHref: string) => {
+    if (pathname === '/') {
+      // En Home, convertir rutas a anchors
+      if (itemHref === '/') return '/'
+      return `/#${itemHref.slice(1)}` // /clases -> /#clases
+    }
+    // En otras páginas, usar rutas normales
+    return itemHref
+  }
 
   return (
     <header className="bg-neutral-950 text-neutral-100">
@@ -37,8 +50,11 @@ export default function Header() {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                href={item.href}
-                className="text-neutral-300 transition-colors duration-200 hover:text-white focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                href={resolveHref(item.href)}
+                className={`text-neutral-300 transition-colors duration-200 hover:text-white focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
+                  pathname === item.href ? 'font-medium text-white' : ''
+                }`}
+                aria-current={pathname === item.href ? 'page' : undefined}
               >
                 {item.name}
               </Link>
@@ -105,9 +121,14 @@ export default function Header() {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  href={item.href}
-                  className="block rounded-md px-3 py-2 text-neutral-300 transition-colors duration-200 hover:bg-neutral-800 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                  href={resolveHref(item.href)}
+                  className={`block rounded-md px-3 py-2 text-neutral-300 transition-colors duration-200 hover:bg-neutral-800 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
+                    pathname === item.href
+                      ? 'bg-neutral-800 font-medium text-white'
+                      : ''
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
+                  aria-current={pathname === item.href ? 'page' : undefined}
                 >
                   {item.name}
                 </Link>

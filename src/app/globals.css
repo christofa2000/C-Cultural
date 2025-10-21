@@ -118,6 +118,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
   }
@@ -126,7 +131,7 @@
 @layer utilities {
   /* Gradientes violeta+rosa según PlanMaestro */
   .gradient-violet-rosa {
-    @apply bg-gradient-to-r from-violet-600 via-violet-500 to-pink-500;
+    @apply bg-linear-to-r from-violet-600 via-violet-500 to-pink-500;
   }
 
   .gradient-aurora-patio {
