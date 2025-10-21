@@ -83,7 +83,9 @@ function buildWhatsAppLink(message: string): string {
  */
 export function openWhatsApp(message: string): void {
   const link = buildWhatsAppLink(message)
-  window.open(link, '_blank', 'noopener,noreferrer')
+  if (typeof window !== 'undefined') {
+    window.open(link, '_blank', 'noopener,noreferrer')
+  }
 }
 
 /**
@@ -108,5 +110,3 @@ export interface RoomBookingParams {
   time?: string
   activity?: string
 }
-
-

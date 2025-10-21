@@ -74,7 +74,7 @@ export default function Section({
               {title}
             </h2>
             {description && (
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-300">
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
                 {description}
               </p>
             )}

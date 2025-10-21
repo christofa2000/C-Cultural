@@ -105,7 +105,9 @@ export function HighlightsRail({
       router.push(item.href)
     } else if (item.href.startsWith('http')) {
       // Enlace externo
-      window.open(item.href, '_blank', 'noopener,noreferrer')
+      if (typeof window !== 'undefined') {
+        window.open(item.href, '_blank', 'noopener,noreferrer')
+      }
     }
   }
 

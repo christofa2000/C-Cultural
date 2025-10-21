@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google'
+import ClientProviders from './ClientProviders'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -27,11 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-AR">
+    <html lang="es-AR" className="light">
       <body
         className={`${fraunces.variable} ${plusJakarta.variable} antialiased`}
       >
-        {children}
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   )

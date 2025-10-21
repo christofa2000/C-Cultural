@@ -17,6 +17,9 @@ import { buildColonyPreEnroll, buildGeneralInquiry } from '@/lib/whatsapp'
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 import Link from 'next/link'
 
+export const dynamic = 'force-static'
+export const revalidate = false
+
 export default function Home() {
   // Preparar datos para el hero
   const heroData = {
@@ -65,7 +68,7 @@ export default function Home() {
           id="clases"
           title="Nuestras Clases"
           description="Descubrí nuestras clases de danza, teatro, música y bienestar para todas las edades"
-          className="bg-linear-to-b from-neutral-900 to-neutral-950"
+          className="bg-linear-to-b from-violet-50 to-pink-50"
         >
           <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredClasses.map((classItem) => {
@@ -111,21 +114,21 @@ export default function Home() {
           id="colonia"
           title="Colonia de Verano e Invierno"
           description="Actividades recreativas, deportivas y artísticas para niños y niñas"
-          className="bg-linear-to-b from-neutral-950 to-neutral-900"
+          className="bg-linear-to-b from-pink-50 to-violet-50"
         >
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-lg border border-white/10 bg-neutral-900 p-8">
+            <div className="rounded-lg border border-violet-200 bg-white p-8 shadow-lg">
               <div className="grid gap-8 md:grid-cols-2">
                 <div>
-                  <h3 className="mb-4 text-2xl font-semibold text-white">
+                  <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                     {activeColony.season === 'verano'
                       ? 'Colonia de Verano'
                       : 'Colonia de Invierno'}
                   </h3>
-                  <p className="mb-4 text-neutral-300">
+                  <p className="mb-4 text-gray-700">
                     {activeColony.description}
                   </p>
-                  <div className="space-y-2 text-sm text-neutral-400">
+                  <div className="space-y-2 text-sm text-gray-600">
                     <p>
                       <strong>Edades:</strong> {activeColony.ages}
                     </p>
@@ -138,7 +141,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="mb-3 font-medium text-neutral-200">
+                  <h4 className="mb-3 font-medium text-gray-800">
                     Actividades incluidas:
                   </h4>
                   <ul className="space-y-2">
@@ -147,7 +150,7 @@ export default function Home() {
                       .map((activity, index) => (
                         <li
                           key={index}
-                          className="flex items-center text-sm text-neutral-300"
+                          className="flex items-center text-sm text-gray-700"
                         >
                           <svg
                             className="mr-2 h-4 w-4 shrink-0 text-violet-400"
@@ -189,7 +192,7 @@ export default function Home() {
                 </a>
                 <Link
                   href="/colonia"
-                  className="inline-flex flex-1 items-center justify-center rounded-lg border border-neutral-700 bg-neutral-800 px-6 py-3 text-neutral-200 transition-all duration-200 hover:bg-neutral-700 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                  className="inline-flex flex-1 items-center justify-center rounded-lg border border-violet-300 bg-white px-6 py-3 text-violet-700 transition-all duration-200 hover:bg-violet-50 hover:text-violet-800 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
                 >
                   Ver más información
                 </Link>
@@ -203,7 +206,7 @@ export default function Home() {
           id="agenda"
           title="Próximos Eventos"
           description="No te pierdas nuestras actividades especiales y eventos"
-          className="bg-linear-to-b from-neutral-900 to-neutral-950"
+          className="bg-linear-to-b from-violet-50 to-pink-50"
         >
           <div className="mx-auto max-w-4xl">
             <EventList events={upcomingEvents} maxItems={3} />
@@ -215,7 +218,7 @@ export default function Home() {
           id="alquiler"
           title="Alquiler del Salón"
           description="Espacios perfectos para tus eventos y actividades"
-          className="bg-linear-to-b from-neutral-950 to-neutral-900"
+          className="bg-linear-to-b from-pink-50 to-violet-50"
         >
           <div className="mx-auto max-w-4xl">
             {mainRoom && <RoomCard room={mainRoom} showFullDetails={false} />}
@@ -227,7 +230,7 @@ export default function Home() {
           id="contacto"
           title="Contacto"
           description="Estamos aquí para ayudarte a encontrar la actividad perfecta"
-          className="bg-linear-to-b from-neutral-900 to-neutral-950"
+          className="bg-linear-to-b from-violet-50 to-pink-50"
         >
           <div className="mx-auto max-w-4xl">
             <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

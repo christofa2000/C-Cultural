@@ -34,7 +34,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-neutral-950 text-neutral-100">
+    <header className="border-b border-violet-200 bg-white text-gray-900 shadow-sm">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -51,8 +51,8 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={resolveHref(item.href)}
-                className={`text-neutral-300 transition-colors duration-200 hover:text-white focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
-                  pathname === item.href ? 'font-medium text-white' : ''
+                className={`text-gray-600 transition-colors duration-200 hover:text-gray-900 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
+                  pathname === item.href ? 'font-medium text-gray-900' : ''
                 }`}
                 aria-current={pathname === item.href ? 'page' : undefined}
               >
@@ -83,7 +83,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="rounded-md p-2 text-neutral-300 hover:bg-neutral-800 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none md:hidden"
+            className="rounded-md p-2 text-gray-600 hover:bg-violet-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none md:hidden"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -117,14 +117,14 @@ export default function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div id="mobile-menu" className="md:hidden">
-            <div className="mt-2 space-y-1 rounded-lg bg-neutral-900 px-2 pt-2 pb-3">
+            <div className="mt-2 space-y-1 rounded-lg border border-violet-200 bg-violet-50 px-2 pt-2 pb-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={resolveHref(item.href)}
-                  className={`block rounded-md px-3 py-2 text-neutral-300 transition-colors duration-200 hover:bg-neutral-800 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
+                  className={`block rounded-md px-3 py-2 text-gray-700 transition-colors duration-200 hover:bg-violet-100 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
                     pathname === item.href
-                      ? 'bg-neutral-800 font-medium text-white'
+                      ? 'bg-violet-100 font-medium text-gray-900'
                       : ''
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
