@@ -3,8 +3,7 @@
  * según las especificaciones del Centro Cultural Chivilcoy
  */
 
-// Número de WhatsApp del centro cultural
-const WHATSAPP_PHONE = '5491234567890' // Reemplazar con el número real
+import { WHATSAPP_PHONE } from './constants'
 
 /**
  * Construye un enlace de WhatsApp para inscripción a clases

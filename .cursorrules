@@ -1,0 +1,104 @@
+
+---
+
+### `.cursorrules`
+
+```yaml
+# .cursorrules — Centro Cultural Chivilcoy (frontend-only)
+
+meta:
+  project: "Centro Cultural Chivilcoy"
+  scope: "Frontend only — sin backend, sin /api, sin pagos, sin newsletter, sin venta de entradas"
+  identity: "Violeta + Rosa; look cultural, cálido y claro"
+  language: "es-AR"
+
+hard_rules:
+  - No crear endpoints, bases de datos ni lógica de servidor.
+  - Todas las **conversiones** ocurren por **WhatsApp** con mensajes prellenados.
+  - **Prohibidos carousels automáticos** en el hero. Usar hero estático (HeroSpotlight).
+  - Si se requiere destacar múltiples ítems, usar **HighlightsRail** manual accesible o **grid**.
+  - Cumplir AA (accesibilidad) y Perf alto (Lighthouse móvil Perf ≥ 90).
+
+directories:
+  app_dir: "/src/app/(site)"
+  components_dir: "/src/components"
+  data_dir: "/src/data"
+  lib_dir: "/src/lib"
+  styles_dir: "/src/styles"
+
+tech_stack:
+  framework: "Next.js 15 (App Router)"
+  language: "TypeScript (estricto)"
+  styling: "Tailwind CSS v4; sin CSS-in-JS adicional"
+  ui: "shadcn/ui para componentes base"
+  motion: "Framer Motion con respeto a prefers-reduced-motion"
+  images: "next/image en todas las imágenes de contenido"
+
+coding_conventions:
+  typescript:
+    - "sin any; usar tipos y utilidades de TS"
+    - "componentes como funciones nombradas; evitar React.FC"
+    - "props tipadas; extraer tipos compartidos a /lib/types si crece"
+  react:
+    - "componentes puros y accesibles; aria-label/role correctos"
+    - "evitar estado global en v1; componer por props"
+  tailwind:
+    - "usar utilidades; evitar CSS custom salvo tokens globales"
+    - "contenedor: max-w-7xl, padding x: 16/24/32 (sm/md/lg)"
+  images:
+    - "usar sizes adecuados; priority solo en el primer hero"
+    - "alt descriptivo obligatorio"
+  a11y:
+    - "controles con foco visible; navegación teclado en rails"
+    - "tocar ARIA solo cuando sea necesario (no duplicar roles)"
+  performance:
+    - "no cargar imágenes > 200KB en primera vista"
+    - "evitar librerías pesadas innecesarias"
+
+data_and_content:
+  - "Las vistas consumen datos desde /data/*.ts (mocks)."
+  - "No persistir nada; no side-effects de red."
+  - "Textos en castellano claro, inclusivo."
+
+seo:
+  - "usar generateMetadata por ruta; metadataBase configurado"
+  - "agregar sitemap y robots"
+
+deliverables_order:
+  - "lib/whatsapp.ts (helpers + tests)"
+  - "components/WhatsAppButton.tsx"
+  - "components/HeroSpotlight.tsx"
+  - "components/HighlightsRail.tsx (manual, accesible)"
+  - "pages: Home → Clases (listado) → Clases [id] (ficha) → Colonia → Alquiler → Agenda → Contacto"
+  - "Header/Footer, Section, ClassCard, RoomCard, EventList, FilterChips"
+  - "datos /data/*.ts suficientes para probar filtros (8–12 items)"
+
+quality_gates:
+  eslint: "sin warnings"
+  typescript: "sin errores; no any"
+  tests:
+    - "Vitest + RTL: whatsapp helpers y navegación de HighlightsRail"
+  lighthouse:
+    mobile:
+      performance: ">=90"
+      accessibility: ">=95"
+      best_practices: ">=95"
+      seo: "100"
+
+pull_requests:
+  checklist:
+    - "capturas mobile/desktop de las vistas tocadas"
+    - "comandos de reproducción: npm run dev / npm run test"
+    - "explicar decisiones de a11y y perf si aplica"
+  commits: "Conventional Commits"
+
+forbidden:
+  - "crear carruseles autoplay"
+  - "agregar dependencias de UI pesadas (Mantine, MUI completo, etc.) sin justificación"
+  - "añadir backend, auth o endpoints"
+  - "usar any, desactivar ESLint, ignorar a11y"
+
+notes:
+  - "Todos los CTAs de acción primaria terminan en un link wa.me generado por lib/whatsapp."
+  - "Identidad visual: gradientes violeta→rosa suaves, tipografías Fraunces + Plus Jakarta Sans."
+  - "Mantener copy humano y conciso; evitar jergas."
