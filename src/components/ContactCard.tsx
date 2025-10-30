@@ -14,18 +14,18 @@ export default function ContactCard({
   isExternal = true,
 }: ContactCardProps) {
   const cardContent = (
-    <div className="group flex items-center space-x-4 rounded-lg border border-white/10 bg-neutral-900 p-6 transition-all duration-200 hover:border-violet-500/50 hover:bg-neutral-800 hover:shadow-lg hover:shadow-violet-500/10">
+    <div className="group border-border bg-card flex items-center space-x-4 rounded-lg border p-6 transition-all duration-200 hover:shadow-sm">
       <div className="shrink-0" aria-hidden="true">
         {icon}
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-medium text-neutral-200 transition-colors duration-200 group-hover:text-white">
+        <p className="text-foreground group-hover:text-foreground text-sm font-medium transition-colors duration-200">
           {label}
         </p>
       </div>
       <div className="shrink-0" aria-hidden="true">
         <svg
-          className="h-4 w-4 text-neutral-400 transition-colors duration-200 group-hover:text-violet-400"
+          className="text-muted-foreground group-hover:text-primary h-4 w-4 transition-colors duration-200"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

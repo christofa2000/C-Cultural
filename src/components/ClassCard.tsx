@@ -1,6 +1,12 @@
+import {
+  AUDIENCE_LABELS,
+  LEVEL_LABELS,
+  WEEKDAY_LABELS_SHORT,
+} from '@/lib/constants'
 import { Class, ClassSchedule, Teacher } from '@/lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
+import { memo } from 'react'
 
 interface ClassCardProps {
   classItem: Class
@@ -8,7 +14,7 @@ interface ClassCardProps {
   teacher: Teacher
 }
 
-export default function ClassCard({
+const ClassCard = memo(function ClassCard({
   classItem,
   schedules,
   teacher,
@@ -17,30 +23,17 @@ export default function ClassCard({
     (schedule) => schedule.classId === classItem.id
   )
 
-  const weekdayLabels = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
-
-  const levelLabels = {
-    inic: 'Inicial',
-    inter: 'Intermedio',
-    avanz: 'Avanzado',
-  }
-
-  const audienceLabels = {
-    adultxs: 'Adultxs',
-    infancias: 'Infancias',
-  }
-
   const getScheduleChips = () => {
     if (classSchedules.length === 0) return null
 
     return (
-      <div className="mt-2 flex flex-wrap gap-1">
+      <div className="mt-3 flex flex-wrap gap-2">
         {classSchedules.map((schedule) => (
           <span
             key={schedule.id}
-            className="rounded-md border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs text-neutral-300"
+            className="border-border bg-muted text-foreground rounded-lg border px-3 py-1.5 text-xs font-medium"
           >
-            {weekdayLabels[schedule.weekday]} {schedule.start}
+            {WEEKDAY_LABELS_SHORT[schedule.weekday]} {schedule.start}
           </span>
         ))}
       </div>
@@ -50,50 +43,53 @@ export default function ClassCard({
   const mainImage = classItem.images?.[0] || '/placeholder-class.jpg'
 
   return (
-    <div className="group overflow-hidden rounded-lg border border-white/10 bg-neutral-900 transition-all duration-300 hover:border-white/20 hover:shadow-lg hover:shadow-violet-500/10">
-      {/* Imagen */}
-      <div className="relative h-48 overflow-hidden">
+    <div className="group border-border bg-card overflow-hidden rounded-xl border transition-all duration-300 hover:shadow-md">
+      {/* Imagen con proporción fija y centrado mejorado */}
+      <div className="relative aspect-4/3 overflow-hidden">
         <Image
           src={mainImage}
           alt={`Imagen de la clase ${classItem.title}`}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
           loading="lazy"
+          priority={false}
         />
+
+        {/* Badges con mejor contraste */}
         <div className="absolute top-3 left-3">
-          <span className="rounded-full bg-linear-to-r from-violet-600 to-pink-600 px-2 py-1 text-xs font-medium text-white">
-            {audienceLabels[classItem.audience]}
+          <span className="rounded-full bg-linear-to-r from-violet-600 to-violet-500 px-3 py-1.5 text-xs font-semibold text-white shadow-md backdrop-blur-sm">
+            {AUDIENCE_LABELS[classItem.audience]}
           </span>
         </div>
         {classItem.level && (
           <div className="absolute top-3 right-3">
-            <span className="rounded-full bg-neutral-800/90 px-2 py-1 text-xs font-medium text-neutral-200">
-              {levelLabels[classItem.level]}
+            <span className="bg-muted text-foreground rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm">
+              {LEVEL_LABELS[classItem.level]}
             </span>
           </div>
         )}
       </div>
 
-      {/* Contenido */}
-      <div className="p-4">
+      {/* Contenido - siempre visible, sin movimiento */}
+      <div className="p-5">
         <div className="space-y-3">
-          {/* Título y disciplina */}
+          {/* Título y disciplina - siempre visible */}
           <div>
-            <h3 className="text-lg font-semibold text-white transition-colors duration-200 group-hover:text-violet-300">
+            <h3 className="text-foreground text-lg font-semibold">
               {classItem.title}
             </h3>
             {classItem.discipline && (
-              <p className="mt-1 text-sm text-neutral-400">
+              <p className="text-muted-foreground mt-1 text-sm">
                 {classItem.discipline}
               </p>
             )}
           </div>
 
           {/* Docente */}
-          <div className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-r from-violet-600 to-pink-600">
-              <span className="text-xs font-medium text-white">
+          <div className="flex items-center space-x-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-r from-violet-600 to-violet-500 shadow-md">
+              <span className="text-sm font-semibold text-white">
                 {teacher.name
                   .split(' ')
                   .map((n) => n[0])
@@ -102,11 +98,11 @@ export default function ClassCard({
               </span>
             </div>
             <div>
-              <p className="text-sm font-medium text-neutral-200">
+              <p className="text-foreground text-sm font-semibold">
                 {teacher.name}
               </p>
               {teacher.specialties && (
-                <p className="text-xs text-neutral-400">
+                <p className="text-muted-foreground text-xs">
                   {teacher.specialties.slice(0, 2).join(', ')}
                 </p>
               )}
@@ -118,28 +114,28 @@ export default function ClassCard({
 
           {/* Precio */}
           {classItem.price && (
-            <p className="text-sm font-medium text-violet-400">
+            <p className="text-primary text-sm font-medium">
               {classItem.price}
             </p>
           )}
 
           {/* Descripción corta */}
           {classItem.description && (
-            <p className="line-clamp-2 text-sm text-neutral-400">
+            <p className="text-muted-foreground line-clamp-2 text-sm">
               {classItem.description}
             </p>
           )}
         </div>
 
         {/* CTA */}
-        <div className="mt-4 border-t border-neutral-800 pt-4">
+        <div className="border-border mt-5 border-t pt-4">
           <Link
             href={`/clases/${classItem.id}`}
-            className="inline-flex w-full items-center justify-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-4 py-2 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+            className="inline-flex w-full items-center justify-center rounded-xl bg-linear-to-r from-violet-600 to-violet-500 px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:from-violet-700 hover:to-violet-600 hover:shadow-lg hover:shadow-violet-500/25 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
           >
             Ver detalle
             <svg
-              className="ml-2 h-4 w-4"
+              className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -156,4 +152,6 @@ export default function ClassCard({
       </div>
     </div>
   )
-}
+})
+
+export default ClassCard

@@ -1,7 +1,8 @@
 'use client'
 
+import { ThemeProvider } from '@/lib/theme-context'
 import { ReactNode } from 'react'
 
 export default function ClientProviders({ children }: { children: ReactNode }) {
-  return <>{children}</>
+  return <ThemeProvider>{children}</ThemeProvider>
 }

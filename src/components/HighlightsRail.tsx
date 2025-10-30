@@ -118,7 +118,7 @@ export function HighlightsRail({
   return (
     <section className={cn('py-16', className)}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces mb-12 text-center text-3xl font-bold text-white sm:text-4xl">
+        <h2 className="text-foreground font-fraunces mb-12 text-center text-3xl font-bold sm:text-4xl">
           {title}
         </h2>
 
@@ -136,7 +136,7 @@ export function HighlightsRail({
               )}
               aria-label="Anterior"
             >
-              <ChevronLeft className="h-6 w-6 text-white" />
+              <ChevronLeft className="text-foreground h-6 w-6" />
             </button>
 
             <div className="flex space-x-2">
@@ -170,7 +170,7 @@ export function HighlightsRail({
               )}
               aria-label="Siguiente"
             >
-              <ChevronRight className="h-6 w-6 text-white" />
+              <ChevronRight className="text-foreground h-6 w-6" />
             </button>
           </div>
 
@@ -190,7 +190,7 @@ export function HighlightsRail({
                 <div
                   key={item.id}
                   className={cn(
-                    'w-full flex-shrink-0 sm:w-1/2 lg:w-1/3',
+                    'w-full shrink-0 sm:w-1/2 lg:w-1/3',
                     'snap-start'
                   )}
                 >
@@ -208,12 +208,12 @@ export function HighlightsRail({
                     )}
 
                     <div className="p-6">
-                      <h3 className="font-fraunces mb-3 text-xl font-semibold text-white">
+                      <h3 className="text-foreground font-fraunces mb-3 text-xl font-semibold">
                         {item.title}
                       </h3>
 
                       {item.description && (
-                        <p className="mb-4 leading-relaxed text-neutral-300">
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
                           {item.description}
                         </p>
                       )}

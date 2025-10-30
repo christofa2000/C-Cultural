@@ -24,7 +24,7 @@ export default function AgendaPage() {
         <h1 className="bg-linear-to-r from-violet-600 via-violet-500 to-pink-500 bg-clip-text font-serif text-4xl font-bold text-transparent">
           Agenda
         </h1>
-        <p className="mt-2 opacity-80">
+        <p className="text-muted-foreground mt-2">
           Próximos talleres y actividades en el Centro Cultural
         </p>
 
@@ -33,16 +33,16 @@ export default function AgendaPage() {
         </div>
 
         {/* Información adicional */}
-        <div className="mt-12 rounded-2xl border border-white/10 bg-neutral-900 p-8">
-          <h2 className="mb-4 text-2xl font-semibold text-white">
+        <div className="border-border bg-card mt-12 rounded-2xl border p-8">
+          <h2 className="text-foreground mb-4 text-2xl font-semibold">
             Información sobre Eventos
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <h3 className="mb-3 text-lg font-medium text-neutral-200">
+              <h3 className="text-foreground mb-3 text-lg font-medium">
                 ¿Cómo participar?
               </h3>
-              <ul className="space-y-2 text-sm text-neutral-300">
+              <ul className="text-muted-foreground space-y-2 text-sm">
                 <li className="flex items-center">
                   <svg
                     className="mr-2 h-4 w-4 shrink-0 text-violet-400"
@@ -94,10 +94,10 @@ export default function AgendaPage() {
               </ul>
             </div>
             <div>
-              <h3 className="mb-3 text-lg font-medium text-neutral-200">
+              <h3 className="text-foreground mb-3 text-lg font-medium">
                 Políticas
               </h3>
-              <ul className="space-y-2 text-sm text-neutral-300">
+              <ul className="text-muted-foreground space-y-2 text-sm">
                 <li className="flex items-center">
                   <svg
                     className="mr-2 h-4 w-4 shrink-0 text-violet-400"

@@ -3,7 +3,15 @@ import Header from '@/components/Header'
 import { classes } from '@/data/classes'
 import { schedules } from '@/data/schedules'
 import { teachers } from '@/data/teachers'
+import {
+  AUDIENCE_LABELS,
+  LEVEL_LABELS,
+  SITE_NAME,
+  SITE_URL,
+  WEEKDAY_LABELS,
+} from '@/lib/constants'
 import { buildClassEnroll } from '@/lib/whatsapp'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -12,6 +20,47 @@ interface ClassDetailPageProps {
   params: Promise<{
     id: string
   }>
+}
+
+export async function generateMetadata({
+  params,
+}: ClassDetailPageProps): Promise<Metadata> {
+  const { id } = await params
+  const classItem = classes.find((c) => c.id === id)
+
+  if (!classItem) {
+    return {
+      title: 'Clase no encontrada',
+    }
+  }
+
+  const teacher = teachers.find((t) => t.id === classItem.teacherId)
+
+  return {
+    title: `${classItem.title} | Centro Cultural Chivilcoy`,
+    description:
+      classItem.description ||
+      `Clase de ${classItem.discipline || 'arte'} para ${AUDIENCE_LABELS[classItem.audience].toLowerCase()}`,
+    openGraph: {
+      title: classItem.title,
+      description: classItem.description,
+      type: 'website',
+      url: `${SITE_URL}/clases/${id}`,
+      images: classItem.images?.[0]
+        ? [
+            {
+              url: `${SITE_URL}${classItem.images[0]}`,
+              alt: `Imagen de ${classItem.title}`,
+            },
+          ]
+        : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: classItem.title,
+      description: classItem.description,
+    },
+  }
 }
 
 export default async function ClassDetailPage({
@@ -29,40 +78,52 @@ export default async function ClassDetailPage({
     (schedule) => schedule.classId === classItem.id
   )
 
-  const weekdayLabels = [
-    'Domingo',
-    'Lunes',
-    'Martes',
-    'Miércoles',
-    'Jueves',
-    'Viernes',
-    'Sábado',
-  ]
-
-  const levelLabels = {
-    inic: 'Inicial',
-    inter: 'Intermedio',
-    avanz: 'Avanzado',
-  }
-
-  const audienceLabels = {
-    adultxs: 'Adultxs',
-    infancias: 'Infancias',
+  // JSON-LD structured data
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: classItem.title,
+    description: classItem.description,
+    image: classItem.images?.[0]
+      ? `${SITE_URL}${classItem.images[0]}`
+      : undefined,
+    provider: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    ...(teacher && {
+      instructor: {
+        '@type': 'Person',
+        name: teacher.name,
+      },
+    }),
+    ...(classItem.price && {
+      offers: {
+        '@type': 'Offer',
+        price: classItem.price,
+        priceCurrency: 'ARS',
+      },
+    }),
   }
 
   const mainImage = classItem.images?.[0] || '/placeholder-class.jpg'
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
-      <main className="min-h-screen bg-neutral-950 text-neutral-100">
+      <main className="bg-background text-foreground min-h-screen">
         <div className="container mx-auto px-4 py-8 md:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-6">
-            <div className="flex items-center space-x-2 text-sm text-neutral-400">
+            <div className="text-muted-foreground flex items-center space-x-2 text-sm">
               <Link
                 href="/"
-                className="transition-colors duration-200 hover:text-white"
+                className="hover:text-foreground transition-colors duration-200"
               >
                 Home
               </Link>
@@ -81,7 +142,7 @@ export default async function ClassDetailPage({
               </svg>
               <Link
                 href="/clases"
-                className="transition-colors duration-200 hover:text-white"
+                className="hover:text-foreground transition-colors duration-200"
               >
                 Clases
               </Link>
@@ -98,7 +159,7 @@ export default async function ClassDetailPage({
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-              <span className="text-neutral-300">{classItem.title}</span>
+              <span className="text-muted-foreground">{classItem.title}</span>
             </div>
           </nav>
 
@@ -144,15 +205,15 @@ export default async function ClassDetailPage({
               <div>
                 <div className="mb-3 flex flex-wrap gap-2">
                   <span className="rounded-full bg-linear-to-r from-violet-600 to-pink-600 px-3 py-1 text-sm font-medium text-white">
-                    {audienceLabels[classItem.audience]}
+                    {AUDIENCE_LABELS[classItem.audience]}
                   </span>
                   {classItem.level && (
-                    <span className="rounded-full border border-neutral-700 bg-neutral-800 px-3 py-1 text-sm font-medium text-neutral-200">
-                      {levelLabels[classItem.level]}
+                    <span className="border-border bg-muted text-foreground rounded-full border px-3 py-1 text-sm font-medium">
+                      {LEVEL_LABELS[classItem.level]}
                     </span>
                   )}
                   {classItem.discipline && (
-                    <span className="rounded-full border border-neutral-700 bg-neutral-800 px-3 py-1 text-sm font-medium text-neutral-200">
+                    <span className="border-border bg-muted text-foreground rounded-full border px-3 py-1 text-sm font-medium">
                       {classItem.discipline}
                     </span>
                   )}
@@ -163,7 +224,7 @@ export default async function ClassDetailPage({
                 </h1>
 
                 {classItem.price && (
-                  <p className="text-xl font-semibold text-violet-400">
+                  <p className="text-primary text-xl font-semibold">
                     {classItem.price}
                   </p>
                 )}
@@ -171,8 +232,8 @@ export default async function ClassDetailPage({
 
               {/* Docente */}
               {teacher && (
-                <div className="rounded-lg border border-neutral-800 bg-neutral-900 p-4">
-                  <h3 className="mb-3 text-lg font-semibold text-white">
+                <div className="border-border bg-card rounded-lg border p-4">
+                  <h3 className="text-foreground mb-3 text-lg font-semibold">
                     Docente
                   </h3>
                   <div className="flex items-center space-x-3">
@@ -186,9 +247,11 @@ export default async function ClassDetailPage({
                       </span>
                     </div>
                     <div>
-                      <p className="font-medium text-white">{teacher.name}</p>
+                      <p className="text-foreground font-medium">
+                        {teacher.name}
+                      </p>
                       {teacher.bioShort && (
-                        <p className="mt-1 text-sm text-neutral-400">
+                        <p className="text-muted-foreground mt-1 text-sm">
                           {teacher.bioShort}
                         </p>
                       )}
@@ -197,7 +260,7 @@ export default async function ClassDetailPage({
                           {teacher.specialties.map((specialty, index) => (
                             <span
                               key={index}
-                              className="rounded border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs text-neutral-300"
+                              className="border-border bg-muted text-foreground rounded border px-2 py-1 text-xs"
                             >
                               {specialty}
                             </span>
@@ -211,11 +274,11 @@ export default async function ClassDetailPage({
 
               {/* Descripción */}
               {classItem.description && (
-                <div className="rounded-lg border border-neutral-800 bg-neutral-900 p-4">
-                  <h3 className="mb-3 text-lg font-semibold text-white">
+                <div className="border-border bg-card rounded-lg border p-4">
+                  <h3 className="text-foreground mb-3 text-lg font-semibold">
                     Descripción
                   </h3>
-                  <p className="leading-relaxed text-neutral-300">
+                  <p className="text-muted-foreground leading-relaxed">
                     {classItem.description}
                   </p>
                 </div>
@@ -223,15 +286,15 @@ export default async function ClassDetailPage({
 
               {/* Requisitos */}
               {classItem.requirements && classItem.requirements.length > 0 && (
-                <div className="rounded-lg border border-neutral-800 bg-neutral-900 p-4">
-                  <h3 className="mb-3 text-lg font-semibold text-white">
+                <div className="border-border bg-card rounded-lg border p-4">
+                  <h3 className="text-foreground mb-3 text-lg font-semibold">
                     Requisitos
                   </h3>
                   <ul className="space-y-2">
                     {classItem.requirements.map((requirement, index) => (
                       <li
                         key={index}
-                        className="flex items-center space-x-2 text-neutral-300"
+                        className="text-muted-foreground flex items-center space-x-2"
                       >
                         <svg
                           className="h-4 w-4 shrink-0 text-violet-400"
@@ -255,8 +318,8 @@ export default async function ClassDetailPage({
 
               {/* Horarios */}
               {classSchedules.length > 0 && (
-                <div className="rounded-lg border border-neutral-800 bg-neutral-900 p-4">
-                  <h3 className="mb-4 text-lg font-semibold text-white">
+                <div className="border-border bg-card rounded-lg border p-4">
+                  <h3 className="text-foreground mb-4 text-lg font-semibold">
                     Horarios disponibles
                   </h3>
                   <div className="space-y-3">
@@ -271,28 +334,28 @@ export default async function ClassDetailPage({
 
                       const whatsappHref = buildClassEnroll({
                         title: classItem.title,
-                        day: weekdayLabels[schedule.weekday],
+                        day: WEEKDAY_LABELS[schedule.weekday],
                         time: schedule.start || 'Hora a convenir',
                       })
 
                       return (
                         <div
                           key={schedule.id}
-                          className="rounded-lg border border-neutral-700 bg-neutral-800 p-3"
+                          className="border-border bg-card rounded-lg border p-3"
                         >
-                          <p className="font-medium text-white">
-                            {weekdayLabels[schedule.weekday]}
+                          <p className="text-foreground font-medium">
+                            {WEEKDAY_LABELS[schedule.weekday]}
                           </p>
-                          <p className="text-sm text-neutral-400">
+                          <p className="text-muted-foreground text-sm">
                             {timeDisplay}
                           </p>
                           {schedule.notes && (
-                            <p className="text-xs text-neutral-500">
+                            <p className="text-muted-foreground text-xs">
                               {schedule.notes}
                             </p>
                           )}
                           {schedule.spots && (
-                            <p className="text-xs text-neutral-500">
+                            <p className="text-muted-foreground text-xs">
                               {schedule.spots} cupos disponibles
                             </p>
                           )}
@@ -304,11 +367,11 @@ export default async function ClassDetailPage({
               )}
 
               {/* CTA principal */}
-              <div className="rounded-lg border border-violet-500/30 bg-linear-to-r from-violet-600/20 to-pink-600/20 p-6">
-                <h3 className="mb-2 text-lg font-semibold text-white">
+              <div className="border-primary/30 rounded-lg border bg-linear-to-r from-violet-600/10 to-pink-600/10 p-6">
+                <h3 className="text-foreground mb-2 text-lg font-semibold">
                   ¿Te interesa esta clase?
                 </h3>
-                <p className="mb-4 text-neutral-300">
+                <p className="text-muted-foreground mb-4">
                   Contactanos por WhatsApp para más información o para
                   inscribirte.
                 </p>
@@ -320,7 +383,7 @@ export default async function ClassDetailPage({
                   })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-6 py-3 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                  className="focus-visible:ring-ring inline-flex items-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-6 py-3 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:outline-none"
                 >
                   <svg
                     className="mr-2 h-5 w-5"

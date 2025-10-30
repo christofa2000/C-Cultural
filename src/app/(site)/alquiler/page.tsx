@@ -30,7 +30,7 @@ export default function AlquilerPage() {
         <h1 className="bg-linear-to-r from-violet-600 via-violet-500 to-pink-500 bg-clip-text font-serif text-4xl font-bold text-transparent">
           Alquiler del Salón
         </h1>
-        <p className="mt-2 opacity-80">
+        <p className="text-muted-foreground mt-2">
           Espacio amplio con piso de madera y espejos · ideal para danza, teatro
           y eventos
         </p>
@@ -44,16 +44,16 @@ export default function AlquilerPage() {
                 altBase="Salón principal"
               />
             </div>
-            <aside className="rounded-2xl border border-white/10 bg-neutral-900 p-6 lg:col-span-2">
-              <h2 className="mb-4 text-2xl font-semibold text-white">
+            <aside className="border-border bg-card rounded-2xl border p-6 lg:col-span-2">
+              <h2 className="text-foreground mb-4 text-2xl font-semibold">
                 Especificaciones
               </h2>
 
               <div className="mb-6">
-                <h3 className="mb-3 text-lg font-medium text-neutral-200">
+                <h3 className="text-foreground mb-3 text-lg font-medium">
                   Características principales
                 </h3>
-                <ul className="space-y-2 text-sm text-neutral-300">
+                <ul className="text-muted-foreground space-y-2 text-sm">
                   {mainRoom.features?.map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <svg
@@ -76,10 +76,10 @@ export default function AlquilerPage() {
               </div>
 
               <div className="mb-6">
-                <h3 className="mb-3 text-lg font-medium text-neutral-200">
+                <h3 className="text-foreground mb-3 text-lg font-medium">
                   Capacidad
                 </h3>
-                <p className="text-sm text-neutral-300">
+                <p className="text-muted-foreground text-sm">
                   {mainRoom.capacity
                     ? `Hasta ${mainRoom.capacity} personas`
                     : 'Capacidad variable según actividad'}
@@ -87,10 +87,10 @@ export default function AlquilerPage() {
               </div>
 
               <div className="mb-6">
-                <h3 className="mb-3 text-lg font-medium text-neutral-200">
+                <h3 className="text-foreground mb-3 text-lg font-medium">
                   Equipamiento incluido
                 </h3>
-                <ul className="space-y-2 text-sm text-neutral-300">
+                <ul className="text-muted-foreground space-y-2 text-sm">
                   <li className="flex items-center">
                     <svg
                       className="mr-2 h-4 w-4 shrink-0 text-violet-400"
@@ -180,14 +180,16 @@ export default function AlquilerPage() {
 
         {/* Patio Verde */}
         {patioRoom && (
-          <div className="mt-12 rounded-2xl border border-white/10 bg-neutral-900 p-8">
-            <h2 className="mb-4 text-2xl font-semibold text-white">
+          <div className="border-border bg-card mt-12 rounded-2xl border p-8">
+            <h2 className="text-foreground mb-4 text-2xl font-semibold">
               Patio Verde
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                <p className="mb-4 text-neutral-300">{patioRoom.description}</p>
-                <ul className="space-y-2 text-sm text-neutral-300">
+                <p className="text-muted-foreground mb-4">
+                  {patioRoom.description}
+                </p>
+                <ul className="text-muted-foreground space-y-2 text-sm">
                   {patioRoom.features?.map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <svg
@@ -232,16 +234,16 @@ export default function AlquilerPage() {
         )}
 
         {/* Información adicional */}
-        <div className="mt-12 rounded-2xl border border-white/10 bg-neutral-900 p-8">
-          <h2 className="mb-4 text-2xl font-semibold text-white">
+        <div className="border-border bg-card mt-12 rounded-2xl border p-8">
+          <h2 className="text-foreground mb-4 text-2xl font-semibold">
             Información sobre Alquileres
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <h3 className="mb-3 text-lg font-medium text-neutral-200">
+              <h3 className="text-foreground mb-3 text-lg font-medium">
                 Tarifas y Horarios
               </h3>
-              <ul className="space-y-2 text-sm text-neutral-300">
+              <ul className="text-muted-foreground space-y-2 text-sm">
                 <li className="flex items-center">
                   <svg
                     className="mr-2 h-4 w-4 shrink-0 text-violet-400"
@@ -309,10 +311,10 @@ export default function AlquilerPage() {
               </ul>
             </div>
             <div>
-              <h3 className="mb-3 text-lg font-medium text-neutral-200">
+              <h3 className="text-foreground mb-3 text-lg font-medium">
                 Condiciones
               </h3>
-              <ul className="space-y-2 text-sm text-neutral-300">
+              <ul className="text-muted-foreground space-y-2 text-sm">
                 <li className="flex items-center">
                   <svg
                     className="mr-2 h-4 w-4 shrink-0 text-violet-400"

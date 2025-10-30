@@ -47,12 +47,54 @@
 
 :root {
   --radius: 0.625rem;
+  /* Base clara, cálida */
+  --background: #f9fafb; /* gris cálido muy claro */
+  --foreground: #111111; /* texto alto contraste oscuro */
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  /* Colores de marca se mantienen (violeta/rosa) */
+  --primary: #a855f7;
+  --primary-foreground: #ffffff;
+  --secondary: #7c3aed;
+  --secondary-foreground: #ffffff;
+  /* Neutros para claro con leve tinte violeta en fondos sutiles */
+  --muted: #f4f1ff; /* lila muy pálido para hovers/badges */
+  --muted-foreground: #4b5563; /* gray-600 para texto secundario */
+  --accent: #ec4899;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #e5e7eb; /* gray-200 */
+  --input: #e5e7eb; /* gray-200 */
+  --ring: #a855f7; /* foco usa primario */
+  /* Charts conservan identidad */
+  --chart-1: #a855f7;
+  --chart-2: #ec4899;
+  --chart-3: #c4b5fd;
+  --chart-4: #f9a8d4;
+  --chart-5: #7c3aed;
+  /* Sidebar claro con leve tinte */
+  --sidebar: #faf7ff;
+  --sidebar-foreground: #1f2937; /* gray-800 */
+  --sidebar-primary: #a855f7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #efe9ff; /* lila pálido */
+  --sidebar-accent-foreground: #1f2937;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #a855f7;
+}
+
+.dark {
+  --radius: 0.625rem;
+  /* Base oscura (tema original) */
   --background: #1b103f; /* violeta oscuro elegante */
   --foreground: #f3e8ff; /* texto claro y legible */
   --card: #2d1b69; /* tarjetas violeta oscuro */
   --card-foreground: #f3e8ff;
   --popover: #2d1b69;
   --popover-foreground: #f3e8ff;
+  /* Colores de marca se mantienen (violeta/rosa) */
   --primary: #a855f7; /* violeta brillante */
   --primary-foreground: #ffffff;
   --secondary: #7c3aed; /* violeta medio */
@@ -65,11 +107,13 @@
   --border: #6b21a8; /* bordes violeta */
   --input: #4c1d95; /* inputs violeta */
   --ring: #a855f7;
+  /* Charts conservan identidad */
   --chart-1: #a855f7;
   --chart-2: #ec4899;
   --chart-3: #c4b5fd;
   --chart-4: #f9a8d4;
   --chart-5: #7c3aed;
+  /* Sidebar oscuro */
   --sidebar: #2d1b69;
   --sidebar-foreground: #f3e8ff;
   --sidebar-primary: #a855f7;
@@ -87,6 +131,14 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Color scheme según tema */
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
     color-scheme: dark;
   }
 
@@ -94,49 +146,58 @@
     @apply bg-background text-foreground font-sans;
   }
 
-  /* TITULOS: alto contraste por defecto */
+  /* Títulos usan foreground */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    color: #ffffff; /* fuerza blanco para visibilidad */
+    color: var(--foreground);
   }
 
-  /* Contraste mejor para párrafos secundarios */
+  /* Texto secundario */
   p,
   li,
   small {
-    color: #e9ddff; /* un poco más claro que foreground en bloques oscuros */
+    color: var(--muted-foreground);
   }
 
   /* Selección de texto a tono */
   ::selection {
+    background: rgba(168, 85, 247, 0.22); /* primario suave */
+    color: var(--foreground);
+  }
+
+  .dark ::selection {
     background: rgba(168, 85, 247, 0.35);
     color: #f3e8ff;
   }
 }
 
 @layer utilities {
-  /* Gradiente violeta/rosa oscuro */
+  /* Gradiente violeta/rosa (identidad intacta) */
   .gradient-violet-rosa {
     @apply bg-linear-to-r from-violet-700 via-fuchsia-600 to-pink-600;
   }
 
-  /* Fondo base con leve gradiente violeta oscuro */
+  /* Fondo base claro con leve tinte lila */
   .bg-app {
+    background: linear-gradient(to bottom, #ffffff 0%, #faf7ff 100%);
+  }
+
+  .dark .bg-app {
     background: linear-gradient(to bottom, #1b103f 0%, #2d1b69 100%);
   }
 
   /* Título sólido (útil si antes tenía bg-clip + text-transparent) */
   .title-solid {
-    color: #fff !important;
+    color: currentColor !important;
     -webkit-text-fill-color: currentColor !important;
     background-image: none !important;
   }
 
-  /* Elevar legibilidad sobre imágenes/fondos vivos */
+  /* Elevar legibilidad sobre imágenes/fondos vivos (no usar en fondos claros planos) */
   .text-elevated {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
   }
@@ -151,9 +212,3 @@
 }
 
 /* Fallback global por si algún bloque pisa el fondo */
-body,
-main,
-section {
-  background-color: #2a1a63 !important; /* violeta oscuro */
-  color: #f3e8ff !important; /* texto claro */
-}

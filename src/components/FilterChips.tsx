@@ -55,7 +55,7 @@ export default function FilterChips({
         <div className="flex justify-end">
           <button
             onClick={clearAllFilters}
-            className="text-sm text-violet-400 underline hover:text-violet-300 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+            className="text-primary hover:text-primary/80 focus-visible:ring-ring text-sm underline focus-visible:rounded-sm focus-visible:ring-2 focus-visible:outline-none"
           >
             Limpiar filtros
           </button>
@@ -64,7 +64,7 @@ export default function FilterChips({
 
       {/* Audiencia */}
       <fieldset>
-        <legend className="mb-3 text-sm font-medium text-neutral-200">
+        <legend className="text-foreground mb-3 text-sm font-medium">
           Audiencia
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -81,7 +81,7 @@ export default function FilterChips({
               className={`rounded-full border px-3 py-1.5 text-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
                 filters.audience === option.value
                   ? 'border-transparent bg-linear-to-r from-violet-600 to-pink-600 text-white'
-                  : 'border-neutral-700 bg-neutral-800 text-neutral-300 hover:border-neutral-600 hover:text-white'
+                  : 'border-border bg-background text-foreground hover:bg-muted'
               }`}
               aria-pressed={filters.audience === option.value}
             >
@@ -93,7 +93,7 @@ export default function FilterChips({
 
       {/* Días de la semana */}
       <fieldset>
-        <legend className="mb-3 text-sm font-medium text-neutral-200">
+        <legend className="text-foreground mb-3 text-sm font-medium">
           Días
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -110,7 +110,7 @@ export default function FilterChips({
               className={`rounded-full border px-3 py-1.5 text-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
                 filters.weekday === option.value
                   ? 'border-transparent bg-linear-to-r from-violet-600 to-pink-600 text-white'
-                  : 'border-neutral-700 bg-neutral-800 text-neutral-300 hover:border-neutral-600 hover:text-white'
+                  : 'border-border bg-background text-foreground hover:bg-muted'
               }`}
               aria-pressed={filters.weekday === option.value}
             >
@@ -122,7 +122,7 @@ export default function FilterChips({
 
       {/* Docentes */}
       <fieldset>
-        <legend className="mb-3 text-sm font-medium text-neutral-200">
+        <legend className="text-foreground mb-3 text-sm font-medium">
           Docente
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -139,7 +139,7 @@ export default function FilterChips({
               className={`rounded-full border px-3 py-1.5 text-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
                 filters.teacherId === option.value
                   ? 'border-transparent bg-linear-to-r from-violet-600 to-pink-600 text-white'
-                  : 'border-neutral-700 bg-neutral-800 text-neutral-300 hover:border-neutral-600 hover:text-white'
+                  : 'border-border bg-background text-foreground hover:bg-muted'
               }`}
               aria-pressed={filters.teacherId === option.value}
             >
@@ -151,7 +151,7 @@ export default function FilterChips({
 
       {/* Nivel */}
       <fieldset>
-        <legend className="mb-3 text-sm font-medium text-neutral-200">
+        <legend className="text-foreground mb-3 text-sm font-medium">
           Nivel
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -168,7 +168,7 @@ export default function FilterChips({
               className={`rounded-full border px-3 py-1.5 text-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
                 filters.level === option.value
                   ? 'border-transparent bg-linear-to-r from-violet-600 to-pink-600 text-white'
-                  : 'border-neutral-700 bg-neutral-800 text-neutral-300 hover:border-neutral-600 hover:text-white'
+                  : 'border-border bg-background text-foreground hover:bg-muted'
               }`}
               aria-pressed={filters.level === option.value}
             >
@@ -180,7 +180,7 @@ export default function FilterChips({
 
       {/* Disciplina */}
       <fieldset>
-        <legend className="mb-3 text-sm font-medium text-neutral-200">
+        <legend className="text-foreground mb-3 text-sm font-medium">
           Disciplina
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -197,7 +197,7 @@ export default function FilterChips({
               className={`rounded-full border px-3 py-1.5 text-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none ${
                 filters.discipline === option.value
                   ? 'border-transparent bg-linear-to-r from-violet-600 to-pink-600 text-white'
-                  : 'border-neutral-700 bg-neutral-800 text-neutral-300 hover:border-neutral-600 hover:text-white'
+                  : 'border-border bg-background text-foreground hover:bg-muted'
               }`}
               aria-pressed={filters.discipline === option.value}
             >

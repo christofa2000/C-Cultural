@@ -10,8 +10,8 @@ type RoomGalleryProps = {
 export default function RoomGallery({ images, altBase }: RoomGalleryProps) {
   if (!images || images.length === 0) {
     return (
-      <div className="rounded-2xl border border-white/10 bg-neutral-800 p-8 text-center">
-        <p className="text-neutral-400">No hay imágenes disponibles</p>
+      <div className="border-border bg-card rounded-2xl border p-8 text-center">
+        <p className="text-muted-foreground">No hay imágenes disponibles</p>
       </div>
     )
   }

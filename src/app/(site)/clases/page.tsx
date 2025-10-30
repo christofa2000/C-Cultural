@@ -36,8 +36,9 @@ export default function ClassesPage() {
             <h1 className="mb-4 bg-linear-to-r from-violet-400 to-violet-300 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
               Nuestras Clases
             </h1>
-            <p className="mx-auto max-w-2xl text-xl text-neutral-300">
-              Descubrí todas las actividades artísticas que tenemos para vos
+            <p className="text-muted-foreground mx-auto max-w-2xl text-xl">
+              Descubrí nuestras clases de danza, teatro, música y yoga para
+              todas las edades
             </p>
           </div>
 
@@ -51,7 +52,7 @@ export default function ClassesPage() {
 
           {/* Resultados */}
           <div className="mb-8 text-center">
-            <p className="text-lg text-neutral-300">
+            <p className="text-muted-foreground text-lg">
               {selectedAudience
                 ? `Mostrando ${filteredClasses.length} clases para ${selectedAudience === 'adultxs' ? 'adultxs' : 'infancias'}`
                 : `Mostrando todas las ${classes.length} clases disponibles`}
@@ -80,9 +81,9 @@ export default function ClassesPage() {
           ) : (
             <div className="py-12 text-center">
               <div className="mx-auto max-w-md">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-neutral-800">
+                <div className="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
                   <svg
-                    className="h-8 w-8 text-neutral-400"
+                    className="text-muted-foreground h-8 w-8"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -95,10 +96,10 @@ export default function ClassesPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-lg font-medium text-white">
+                <h3 className="text-foreground mb-2 text-lg font-medium">
                   No hay clases con esos filtros
                 </h3>
-                <p className="mb-4 text-neutral-400">
+                <p className="text-muted-foreground mb-4">
                   Probá ajustando los filtros para encontrar lo que buscás.
                 </p>
                 <button

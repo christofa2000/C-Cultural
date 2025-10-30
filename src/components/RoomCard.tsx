@@ -19,7 +19,7 @@ export default function RoomCard({
   const mainImage = room.images?.[0] || '/placeholder-room.jpg'
 
   return (
-    <div className="overflow-hidden rounded-lg border border-white/10 bg-neutral-900 transition-all duration-300 hover:border-white/20 hover:shadow-lg hover:shadow-violet-500/10">
+    <div className="border-border bg-card overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-md">
       {/* Imagen */}
       <div className="relative h-48 overflow-hidden">
         <Image
@@ -37,7 +37,7 @@ export default function RoomCard({
         </div>
         {room.capacity && (
           <div className="absolute top-3 right-3">
-            <span className="rounded-full bg-neutral-800/90 px-3 py-1 text-xs font-medium text-neutral-200">
+            <span className="bg-muted text-foreground rounded-full px-3 py-1 text-xs font-medium">
               {room.capacity} personas
             </span>
           </div>
@@ -46,10 +46,12 @@ export default function RoomCard({
 
       {/* Contenido */}
       <div className="p-6">
-        <h3 className="mb-2 text-xl font-semibold text-white">{room.name}</h3>
+        <h3 className="text-foreground mb-2 text-xl font-semibold">
+          {room.name}
+        </h3>
 
         {room.description && (
-          <p className="mb-4 line-clamp-3 text-neutral-300">
+          <p className="text-muted-foreground mb-4 line-clamp-3">
             {room.description}
           </p>
         )}
@@ -57,7 +59,7 @@ export default function RoomCard({
         {/* Características */}
         {room.features && room.features.length > 0 && (
           <div className="mb-4">
-            <h4 className="mb-2 text-sm font-medium text-neutral-200">
+            <h4 className="text-foreground mb-2 text-sm font-medium">
               Características:
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -66,13 +68,13 @@ export default function RoomCard({
                 .map((feature, index) => (
                   <span
                     key={index}
-                    className="rounded-md border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs text-neutral-300"
+                    className="border-border bg-muted text-foreground rounded-md border px-2 py-1 text-xs"
                   >
                     {feature}
                   </span>
                 ))}
               {!showFullDetails && room.features.length > 3 && (
-                <span className="rounded-md border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs text-neutral-300">
+                <span className="border-border bg-muted text-foreground rounded-md border px-2 py-1 text-xs">
                   +{room.features.length - 3} más
                 </span>
               )}
@@ -86,7 +88,7 @@ export default function RoomCard({
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-4 py-2 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+            className="focus-visible:ring-ring inline-flex flex-1 items-center justify-center rounded-lg bg-linear-to-r from-violet-600 to-pink-600 px-4 py-2 text-white transition-all duration-200 hover:from-violet-700 hover:to-pink-700 focus-visible:ring-2 focus-visible:outline-none"
           >
             <svg
               className="mr-2 h-4 w-4"
@@ -100,7 +102,7 @@ export default function RoomCard({
 
           <Link
             href="/alquiler"
-            className="inline-flex flex-1 items-center justify-center rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2 text-neutral-200 transition-all duration-200 hover:bg-neutral-700 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+            className="border-border bg-background text-foreground hover:bg-muted inline-flex flex-1 items-center justify-center rounded-lg border px-4 py-2 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
           >
             Más info
           </Link>

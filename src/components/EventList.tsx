@@ -14,12 +14,12 @@ export default function EventList({ events, maxItems = 3 }: EventListProps) {
       {displayEvents.map((event) => (
         <div
           key={event.id}
-          className="rounded-lg border border-white/10 bg-neutral-900 p-4 transition-all duration-200 hover:border-white/20 hover:bg-neutral-800"
+          className="border-border bg-card rounded-lg border p-4 transition-all duration-200 hover:shadow-sm"
         >
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <h3 className="font-semibold text-white">{event.title}</h3>
-              <p className="mt-1 text-sm text-neutral-400">
+              <h3 className="text-foreground font-semibold">{event.title}</h3>
+              <p className="text-muted-foreground mt-1 text-sm">
                 {new Date(event.dateISO).toLocaleDateString('es-AR', {
                   weekday: 'long',
                   year: 'numeric',
@@ -30,12 +30,12 @@ export default function EventList({ events, maxItems = 3 }: EventListProps) {
                 })}
               </p>
               {event.description && (
-                <p className="mt-2 line-clamp-2 text-sm text-neutral-300">
+                <p className="text-muted-foreground mt-2 line-clamp-2 text-sm">
                   {event.description}
                 </p>
               )}
               {event.price && (
-                <p className="mt-2 text-sm font-medium text-violet-400">
+                <p className="text-primary mt-2 text-sm font-medium">
                   {event.price}
                 </p>
               )}
@@ -48,7 +48,7 @@ export default function EventList({ events, maxItems = 3 }: EventListProps) {
         <div className="text-center">
           <Link
             href="/agenda"
-            className="inline-flex items-center text-sm text-violet-400 transition-colors duration-200 hover:text-violet-300 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+            className="text-primary hover:text-primary/80 focus-visible:ring-ring inline-flex items-center text-sm transition-colors duration-200 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:outline-none"
           >
             Ver todos los eventos
             <svg

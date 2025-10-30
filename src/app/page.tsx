@@ -25,9 +25,11 @@ export default function Home() {
     title: 'Centro Cultural Chivilcoy',
     subtitle:
       'Un espacio donde la creatividad, el arte y la comunidad se encuentran. Clases para todas las edades, colonia de verano e invierno, y alquiler de salón.',
-    image: '/salapro.jpg',
+    image: '/fondo2.jpg',
     imageAlt:
       'Centro Cultural Chivilcoy - Salón principal con piso de madera y espejos',
+    overlayText:
+      'Un espacio para crear, aprender, explorar, expresar y conectar con vos y con otros!',
     primaryCta: {
       text: 'Ver Clases',
       href: '/#clases',
@@ -56,13 +58,17 @@ export default function Home() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <HeroSpotlight {...heroData} />
+        <HeroSpotlight
+          image={heroData.image}
+          imageAlt={heroData.imageAlt}
+          overlayText={heroData.overlayText}
+        />
 
         {/* Sección Clases */}
         <Section
           id="clases"
           title="Nuestras Clases"
-          description="Descubrí nuestras clases de danza, teatro, música y bienestar para todas las edades"
+          description="Descubrí nuestras clases de danza, teatro, música y yoga para todas las edades"
           className=""
         >
           <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -112,18 +118,18 @@ export default function Home() {
           className=""
         >
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-lg border border-violet-700 bg-neutral-900 p-8 shadow-lg">
+            <div className="border-border bg-card rounded-lg border p-8 shadow-sm">
               <div className="grid gap-8 md:grid-cols-2">
                 <div>
-                  <h3 className="mb-4 text-2xl font-semibold text-white">
+                  <h3 className="text-foreground mb-4 text-2xl font-semibold">
                     {activeColony.season === 'verano'
                       ? 'Colonia de Verano'
                       : 'Colonia de Invierno'}
                   </h3>
-                  <p className="mb-4 text-neutral-300">
+                  <p className="text-muted-foreground mb-4">
                     {activeColony.description}
                   </p>
-                  <div className="space-y-2 text-sm text-neutral-400">
+                  <div className="text-muted-foreground space-y-2 text-sm">
                     <p>
                       <strong>Edades:</strong> {activeColony.ages}
                     </p>
@@ -133,7 +139,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="mb-3 font-medium text-neutral-200">
+                  <h4 className="text-foreground mb-3 font-medium">
                     Actividades incluidas:
                   </h4>
                   <ul className="space-y-2">
@@ -142,7 +148,7 @@ export default function Home() {
                       .map((activity, index) => (
                         <li
                           key={index}
-                          className="flex items-center text-sm text-neutral-300"
+                          className="text-muted-foreground flex items-center text-sm"
                         >
                           <svg
                             className="mr-2 h-4 w-4 shrink-0 text-violet-400"
@@ -184,7 +190,7 @@ export default function Home() {
                 </a>
                 <Link
                   href="/colonia"
-                  className="inline-flex flex-1 items-center justify-center rounded-lg border border-violet-700 bg-neutral-800 px-6 py-3 text-neutral-200 transition-all duration-200 hover:bg-neutral-700 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
+                  className="border-border bg-background text-foreground hover:bg-muted inline-flex flex-1 items-center justify-center rounded-lg border px-6 py-3 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:outline-none"
                 >
                   Ver más información
                 </Link>

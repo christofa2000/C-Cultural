@@ -20,13 +20,13 @@ export default function ContactPage() {
             <h1 className="bg-white bg-linear-to-r via-violet-500 to-pink-500 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
               Contacto
             </h1>
-            <p className="mt-4 text-lg text-neutral-300">
+            <p className="text-muted-foreground mt-4 text-lg">
               Estamos en Chivilcoy 3051, CABA
             </p>
             <p className="mt-1 text-sm text-pink-400">
               🚲 Espacio para bicicletas
             </p>
-            <p className="mt-2 text-neutral-400">
+            <p className="text-muted-foreground mt-2">
               ¡Contactanos y te ayudamos a encontrar la actividad perfecta para
               vos!
             </p>
@@ -34,7 +34,7 @@ export default function ContactPage() {
 
           {/* Tarjetas de contacto */}
           <div className="mb-12">
-            <h2 className="mb-6 text-2xl font-semibold text-white">
+            <h2 className="text-foreground mb-6 text-2xl font-semibold">
               Formas de contacto
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -78,24 +78,24 @@ export default function ContactPage() {
           </div>
 
           {/* Horarios de atención */}
-          <div className="mb-12 rounded-lg border border-white/10 bg-neutral-900 p-6">
-            <h3 className="mb-4 text-xl font-semibold text-white">
+          <div className="border-border bg-card mb-12 rounded-lg border p-6">
+            <h3 className="text-foreground mb-4 text-xl font-semibold">
               Horarios de atención
             </h3>
             <div className="grid gap-4 md:grid-cols-2">
               <div>
-                <h4 className="font-medium text-neutral-200">
+                <h4 className="text-foreground font-medium">
                   Clases regulares
                 </h4>
-                <p className="text-sm text-neutral-400">
+                <p className="text-muted-foreground text-sm">
                   Lunes a Viernes: 17:00 - 21:00
                   <br />
                   Sábados: 10:00 - 18:00
                 </p>
               </div>
               <div>
-                <h4 className="font-medium text-neutral-200">Administración</h4>
-                <p className="text-sm text-neutral-400">
+                <h4 className="text-foreground font-medium">Administración</h4>
+                <p className="text-muted-foreground text-sm">
                   Lunes a Viernes: 10:00 - 19:00
                   <br />
                   Sábados: 10:00 - 14:00
@@ -106,10 +106,10 @@ export default function ContactPage() {
 
           {/* Mapa */}
           <div className="mb-12">
-            <h2 className="mb-6 text-2xl font-semibold text-white">
+            <h2 className="text-foreground mb-6 text-2xl font-semibold">
               Ubicación
             </h2>
-            <div className="overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-violet-900/20">
+            <div className="border-border overflow-hidden rounded-2xl border shadow-lg shadow-violet-900/10">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.932423378647!2d-58.508475090190814!3d-34.60587027284075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb62cff9ea3d9%3A0x4da9b27a898df0d9!2sChivilcoy%203051%2C%20C1417%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1753324312126!5m2!1ses!2sar"
                 width="100%"
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 className="block"
               />
             </div>
-            <p className="mt-4 text-center text-sm text-neutral-400">
+            <p className="text-muted-foreground mt-4 text-center text-sm">
               <MapPin className="mr-2 inline h-4 w-4" />
               Chivilcoy 3051, Ciudad Autónoma de Buenos Aires
               <br />
@@ -130,11 +130,11 @@ export default function ContactPage() {
           </div>
 
           {/* CTA Final */}
-          <div className="rounded-lg border border-violet-500/30 bg-linear-to-r from-violet-600/20 to-pink-600/20 p-8 text-center">
-            <h3 className="mb-4 text-2xl font-semibold text-white">
+          <div className="rounded-lg border border-violet-500/30 bg-linear-to-r from-violet-600/10 to-pink-600/10 p-8 text-center">
+            <h3 className="text-foreground mb-4 text-2xl font-semibold">
               ¿Tenés alguna consulta?
             </h3>
-            <p className="mb-6 text-neutral-300">
+            <p className="text-muted-foreground mb-6">
               Escribinos por WhatsApp y te respondemos al instante. Estamos aquí
               para ayudarte a encontrar la actividad perfecta.
             </p>
